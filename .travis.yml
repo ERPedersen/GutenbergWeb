@@ -2,6 +2,9 @@ language: node_js
 node_js:
   - "6.9"
 
+cache:
+  - node_modules
+
 branches:
   only:
     - master
@@ -12,6 +15,8 @@ before_script:
 
 script:
   - ng build --prod
+  - ng test --watch false
+  - ng e2e
 
 after_success:
   - firebase deploy --token $FIREBASE_TOKEN
