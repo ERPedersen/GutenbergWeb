@@ -1,4 +1,4 @@
-import { GutenbergWebPage } from './app.po';
+import {GutenbergWebPage} from './app.po';
 
 describe('gutenberg-web App', () => {
   let page: GutenbergWebPage;
@@ -7,8 +7,14 @@ describe('gutenberg-web App', () => {
     page = new GutenbergWebPage();
   });
 
-  it('should display message saying app works', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+  it('should display the app title in the .navbar-brand', () => {
+    page.navigateToHome();
+    expect(page.getAppTitle()).toEqual('Gutenberg');
   });
+
+  it('should display the title ´Home´ on ´/´', () => {
+    page.navigateToHome();
+    expect(page.getPageTitle()).toEqual('Home');
+  });
+
 });

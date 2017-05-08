@@ -1,11 +1,15 @@
 import { browser, element, by } from 'protractor';
 
 export class GutenbergWebPage {
-  navigateTo() {
+  navigateToHome() {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getAppTitle() {
+    return element(by.css('app-root .navbar-brand')).getText();
+  }
+
+  getPageTitle() {
+    return element(by.css('app-root h1.page-title')).getText();
   }
 }

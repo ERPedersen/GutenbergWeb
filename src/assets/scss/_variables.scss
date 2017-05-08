@@ -1,0 +1,49 @@
+// Colors
+$color-primary:                       #F9690E;
+$color-dark:                          #2c3e50;
+$color-medium:                        #22313F;
+$color-white:                         #FFFFFF;
+
+// Brand Colors
+$brand-primary:                       $color-primary;
+
+// Page
+$link-hover-decoration:               none;
+$body-bg:                             #fff;
+$text-color:                          $color-medium;
+$border-radius-base:                  3px;
+$border-radius-large:                 3px;
+$border-radius-small:                 3px;
+
+// Typography
+$font-family-base:                    'Roboto', sans-serif;
+$font-size-base:                      15px;
+
+$headings-font-family:                'Roboto', sans-serif;
+$headings-font-weight:                300;
+$headings-line-height:                1.1;
+$headings-color:                      $color-dark;
+$font-size-h1:                        32px;
+
+// Navbar
+$navbar-height:                       80px;
+$navbar-margin-bottom:                0;
+
+// Navbar inverse
+$navbar-inverse-color:                $color-white;
+$navbar-inverse-bg:                   $color-dark;
+$navbar-inverse-border:               darken($navbar-inverse-bg, 10%);
+
+$navbar-inverse-link-color:           $color-white;
+$navbar-inverse-link-hover-color:     $color-primary;
+$navbar-inverse-link-hover-bg:        transparent;
+$navbar-inverse-link-active-color:    $navbar-inverse-link-hover-color;
+$navbar-inverse-link-active-bg:       transparent;
+
+$navbar-inverse-brand-color:          $navbar-inverse-link-color;
+$navbar-inverse-brand-hover-color:    #fff;
+$navbar-inverse-brand-hover-bg:       transparent;
+
+$navbar-inverse-toggle-hover-bg:      transparent;
+$navbar-inverse-toggle-icon-bar-bg:   #fff;
+$navbar-inverse-toggle-border-color:  transparent;
