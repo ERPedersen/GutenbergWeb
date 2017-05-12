@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SidebarComponent } from './sidebar.component';
-import {NO_ERRORS_SCHEMA} from "@angular/core";
+import {NO_ERRORS_SCHEMA} from '@angular/core';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
