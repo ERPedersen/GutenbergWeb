@@ -1,0 +1,10 @@
+@import "../../assets/scss/colors";
+
+#map {
+  .map-container {
+    background-color: $color-dark;
+    height: 100vh;
+    width: calc(100% - 450px);
+    float: left;
+  }
+}
