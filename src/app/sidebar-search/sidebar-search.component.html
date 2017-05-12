@@ -3,7 +3,7 @@
 
   <div class="form-group" [class.has-error]="errors.type">
     <select class="form-control" [(ngModel)]="type" (change)="validateForm();">
-      <option value="none" disabled selected>Select a search type</option>
+      <option value="" disabled selected>Select a search type</option>
       <option value="author">Author name</option>
       <option value="title">Title</option>
     </select>

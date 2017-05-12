@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sidebar-search.component.html',
   styleUrls: ['sidebar-search.component.scss']
 })
+
 export class SidebarSearchComponent implements OnInit {
 
   public type: string;
@@ -16,7 +17,7 @@ export class SidebarSearchComponent implements OnInit {
   };
 
   constructor() {
-    this.type = 'none';
+    this.type = '';
     this.query = '';
   }
 
@@ -34,7 +35,7 @@ export class SidebarSearchComponent implements OnInit {
   }
 
   validateForm() {
-    this.errors.type = this.type === 'none' || this.type === '';
+    this.errors.type = this.type === '';
     this.errors.query = this.query === '';
   }
 }
