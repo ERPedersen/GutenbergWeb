@@ -2,9 +2,10 @@
 
 #map {
   .map-container {
+    width: calc(100% - 450px);
+    min-width: 750px;
+    float: left;
     background-color: $color-dark;
     height: 100vh;
-    width: calc(100% - 450px);
-    float: left;
   }
 }
