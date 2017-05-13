@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BookService} from '../book.service';
+import {BookService} from '../services/book/book.service';
 
 
 @Component({
@@ -10,7 +10,7 @@ import {BookService} from '../book.service';
   providers: [BookService]
 })
 
-export class SidebarSearchComponent implements OnInit {
+export class SidebarSearchComponent {
 
   public type: string;
   public query: string;
@@ -19,39 +19,31 @@ export class SidebarSearchComponent implements OnInit {
     query: false
   };
 
-  objects = [];
-  errorMessage: string;
-
-  constructor(private bookService: BookService) {
+  constructor() {
     this.type = '';
     this.query = '';
-  }
-
-  ngOnInit(): void {
-    this.getObjects();
-  }
-
-  getObjects() {
-    this.bookService.getResponse()
-      .subscribe(function(objects) {
-        console.log(objects);
-      }, function(error) {
-        console.log(error);
-      });
   }
 
   formSubmit() {
     this.validateForm();
 
     if (!this.errors.type && !this.errors.query) {
-      console.log(this.bookService.getResponse());
+      console.log('Success');
     } else {
       console.log('Failed');
     }
   }
 
   validateForm() {
+    this.validateType();
+    this.validateQuery();
+  }
+
+  validateType() {
     this.errors.type = this.type === '';
+  }
+
+  validateQuery() {
     this.errors.query = this.query === '';
   }
 }

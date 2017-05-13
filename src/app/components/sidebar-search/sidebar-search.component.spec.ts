@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {SidebarSearchComponent} from './sidebar-search.component';
-import {BookService} from '../book.service';
+import {BookService} from '../services/book/book.service';
 import {HttpModule, JsonpModule} from '@angular/http';
 import {FormsModule} from "@angular/forms";
 
