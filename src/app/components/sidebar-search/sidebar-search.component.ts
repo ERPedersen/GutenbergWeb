@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {BookService} from '../services/book/book.service';
+import {BookService} from '../../services/book/book.service';
 
 
 @Component({
   moduleId: module.id,
   selector: 'app-sidebar-search',
-  templateUrl: './sidebar-search.component.html',
+  templateUrl: 'sidebar-search.component.html',
   styleUrls: ['sidebar-search.component.scss'],
   providers: [BookService]
 })

@@ -1,15 +1,30 @@
-import { browser, element, by } from 'protractor';
+import {browser, element, by, protractor} from 'protractor';
 
 export class GutenbergWebPage {
   navigateToHome() {
     return browser.get('/');
   }
 
-  getAppTitle() {
-    return element(by.css('app-root .navbar-brand')).getText();
+  hasClass(element, cls) {
+    return element.getAttribute('class').then(function (classes) {
+      return classes.split(' ').indexOf(cls) !== -1;
+    });
+  };
+
+  selectDropdownItem(element, optionNum) {
+    if (optionNum) {
+      element.all(by.tagName('option'))
+        .then(function (options) {
+          options[optionNum].click();
+        });
+    }
+  };
+
+  writeInput(element, input) {
+    element.clear().sendKeys(input);
   }
 
-  getPageTitle() {
-    return element(by.css('app-root h1.page-title')).getText();
+  clickElement(element) {
+    element.click();
   }
 }
