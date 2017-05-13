@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {BookService} from '../book.service';
+
 
 @Component({
   moduleId: module.id,
   selector: 'app-sidebar-search',
   templateUrl: './sidebar-search.component.html',
-  styleUrls: ['sidebar-search.component.scss']
+  styleUrls: ['sidebar-search.component.scss'],
+  providers: [BookService]
 })
 
 export class SidebarSearchComponent implements OnInit {
@@ -16,21 +19,34 @@ export class SidebarSearchComponent implements OnInit {
     query: false
   };
 
-  constructor() {
+  objects = [];
+  errorMessage: string;
+
+  constructor(private bookService: BookService) {
     this.type = '';
     this.query = '';
   }
 
   ngOnInit(): void {
+    this.getObjects();
+  }
+
+  getObjects() {
+    this.bookService.getResponse()
+      .subscribe(function(objects) {
+        console.log(objects);
+      }, function(error) {
+        console.log(error);
+      });
   }
 
   formSubmit() {
     this.validateForm();
 
     if (!this.errors.type && !this.errors.query) {
-      console.log('Success');
+      console.log(this.bookService.getResponse());
     } else {
-      console.log('Fail');
+      console.log('Failed');
     }
   }
 
