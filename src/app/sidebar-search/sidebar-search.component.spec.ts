@@ -1,9 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SidebarSearchComponent } from './sidebar-search.component';
-import { BookService } from '../book.service';
-import {NO_ERRORS_SCHEMA} from '@angular/core';
-import {HttpModule} from '@angular/http';
+import {SidebarSearchComponent} from './sidebar-search.component';
+import {BookService} from '../book.service';
+import {HttpModule, JsonpModule} from '@angular/http';
+import {FormsModule} from "@angular/forms";
 
 describe('SidebarSearchComponent', () => {
   let component: SidebarSearchComponent;
@@ -11,12 +11,19 @@ describe('SidebarSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SidebarSearchComponent ],
-      providers: [BookService],
-      schemas: [NO_ERRORS_SCHEMA],
-      imports: [HttpModule]
+      declarations: [
+        SidebarSearchComponent
+      ],
+      providers: [
+        BookService
+      ],
+      imports: [
+        FormsModule,
+        HttpModule,
+        JsonpModule
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

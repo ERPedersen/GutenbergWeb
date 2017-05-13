@@ -1,7 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SidebarComponent } from './sidebar.component';
-import {NO_ERRORS_SCHEMA} from '@angular/core';
+import {SidebarResultsComponent} from "../sidebar-results/sidebar-results.component";
+import {SidebarSearchComponent} from "../sidebar-search/sidebar-search.component";
+import {FormsModule} from "@angular/forms";
+import {HttpModule, JsonpModule} from "@angular/http";
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -9,8 +12,16 @@ describe('SidebarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SidebarComponent ],
-      schemas: [NO_ERRORS_SCHEMA]
+      declarations: [
+        SidebarComponent,
+        SidebarSearchComponent,
+        SidebarResultsComponent
+      ],
+      imports: [
+        FormsModule,
+        HttpModule,
+        JsonpModule
+      ]
     })
     .compileComponents();
   }));
