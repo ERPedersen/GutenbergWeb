@@ -5,6 +5,7 @@ import {SidebarResultsComponent} from "../sidebar-results/sidebar-results.compon
 import {SidebarSearchComponent} from "../sidebar-search/sidebar-search.component";
 import {FormsModule} from "@angular/forms";
 import {HttpModule, JsonpModule} from "@angular/http";
+import {BookService} from "../../services/book/book.service";
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -16,6 +17,9 @@ describe('SidebarComponent', () => {
         SidebarComponent,
         SidebarSearchComponent,
         SidebarResultsComponent
+      ],
+      providers: [
+        BookService
       ],
       imports: [
         FormsModule,

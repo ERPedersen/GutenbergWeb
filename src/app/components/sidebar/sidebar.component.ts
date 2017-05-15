@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -6,11 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
 
+export class SidebarComponent {
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }
