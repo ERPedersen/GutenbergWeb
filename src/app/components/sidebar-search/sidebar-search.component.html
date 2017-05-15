@@ -11,9 +11,12 @@
 
   <div class="form-inline">
     <div id="sidebar-search-query-group" class="form-group" [class.has-error]="errors.query">
-      <input id="sidebar-search-query" type="text" class="form-control" placeholder="Search..."  (keyup)="validateQuery();" [(ngModel)]="query" required>
+      <input id="sidebar-search-query" type="text" class="form-control" placeholder="Search..." (keyup)="validateQuery();" [(ngModel)]="query" required>
     </div>
-    <button id="sidebar-search-button" class="btn btn-primary" (click)="formSubmit()">Search</button>
+    <button id="sidebar-search-button" class="btn btn-primary" (click)="formSubmit()" [disabled]="loading">
+      <span *ngIf="loading"><i class="fa fa-fw fa-refresh fa-spin"></i></span>
+      <span *ngIf="!loading">Search</span>
+    </button>
   </div>
 
 
