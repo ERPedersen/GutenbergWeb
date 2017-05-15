@@ -8,6 +8,7 @@ import { MapComponent } from './components/map/map.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarSearchComponent } from './components/sidebar-search/sidebar-search.component';
 import { SidebarResultsComponent } from './components/sidebar-results/sidebar-results.component';
+import {BookService} from "./services/book/book.service";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SidebarResultsComponent } from './components/sidebar-results/sidebar-re
     HttpModule,
     JsonpModule
   ],
+  providers: [BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
