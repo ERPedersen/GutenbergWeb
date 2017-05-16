@@ -365,22 +365,22 @@
     },
     {
       "UID": "1606042436299",
-      "title": "purus. Maecenas libero est,",
+      "title": "Return of the Jedi",
       "text": "0",
       "authors": [
         {
           "UID": "1662052026099",
-          "name": "MacKensie Ryan"
+          "name": "George Lucas"
         }
       ],
       "locations": [
         {
-          "name": "Bruderheim",
+          "name": "Tatooine",
           "lat": "11.40292",
           "long": "157.14755"
         },
         {
-          "name": "Minturno",
+          "name": "Naboo",
           "lat": "-87.04052",
           "long": "-102.57267"
         }
