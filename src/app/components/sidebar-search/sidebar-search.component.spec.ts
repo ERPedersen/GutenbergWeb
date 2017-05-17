@@ -66,7 +66,7 @@ describe('SidebarSearchComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should invalidate the search form when type or query is empty', () => {
+  it('should invalidate the search form when type or query is empty.', () => {
     component.type = '';
     component.query = '';
     component.formSubmit();
@@ -74,7 +74,7 @@ describe('SidebarSearchComponent', () => {
     expect(component.errors.query).toBeTruthy();
   });
 
-  it('should validate the search form when type and query is set', () => {
+  it('should validate the search form when type and query is set.', () => {
     component.type = 'author';
     component.query = 'test';
     component.formSubmit();
