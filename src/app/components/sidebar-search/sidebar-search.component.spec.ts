@@ -36,19 +36,19 @@ describe('SidebarSearchComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should invalidate the search form when type or query is empty', () => {
-  //   component.type = '';
-  //   component.query = '';
-  //   component.formSubmit();
-  //   expect(component.errors.type).toBeTruthy();
-  //   expect(component.errors.query).toBeTruthy();
-  // });
-  //
-  // it('should validate the search form when type and query is set', () => {
-  //   component.type = 'author';
-  //   component.query = 'test';
-  //   component.formSubmit();
-  //   expect(component.errors.type).toBeFalsy();
-  //   expect(component.errors.query).toBeFalsy();
-  // });
+  it('should invalidate the search form when type or query is empty', () => {
+    component.type = '';
+    component.query = '';
+    component.formSubmit();
+    expect(component.errors.type).toBeTruthy();
+    expect(component.errors.query).toBeTruthy();
+  });
+
+  it('should validate the search form when type and query is set', () => {
+    component.type = 'author';
+    component.query = 'test';
+    component.formSubmit();
+    expect(component.errors.type).toBeFalsy();
+    expect(component.errors.query).toBeFalsy();
+  });
 });
