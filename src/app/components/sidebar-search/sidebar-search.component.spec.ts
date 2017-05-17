@@ -50,7 +50,7 @@ describe('SidebarSearchComponent', () => {
         HttpModule,
         JsonpModule
       ]
-    }).compileComponents();
+    });
   }));
 
   beforeEach(() => {
@@ -58,6 +58,7 @@ describe('SidebarSearchComponent', () => {
     component = fixture.componentInstance;
     bookService = TestBed.get(BookService);
     spyOn(bookService, 'getSubject').and.returnValue(Observable.of(SUBJECT));
+    spyOn(bookService, 'getBooks').and.returnValue(Observable.of(SUBJECT));
     fixture.detectChanges();
   });
 

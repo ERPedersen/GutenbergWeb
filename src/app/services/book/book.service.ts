@@ -15,7 +15,7 @@ export class BookService {
 
   public getBooks() {
     return this.http.get('http://localhost:3000/books').
-      subscribe(res => this.booksChanged$.next(res.json()));
+      do(res => this.booksChanged$.next(res.json()));
   }
 
   public getSubject(): Observable<any> {

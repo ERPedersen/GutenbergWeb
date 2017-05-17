@@ -11,6 +11,7 @@ import {BookService} from '../../services/book/book.service';
 
 export class SidebarSearchComponent {
 
+  public books: any;
   public type: string;
   public query: string;
   public loading: boolean;
@@ -49,7 +50,9 @@ export class SidebarSearchComponent {
   }
 
   private getBooks() {
-    this.bookService.getBooks();
-    this.loading = false;
+    this.bookService.getBooks().subscribe((books) => {
+      this.loading = false;
+      this.books = books;
+    });
   }
 }
