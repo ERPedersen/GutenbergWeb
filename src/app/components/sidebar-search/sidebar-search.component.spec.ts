@@ -50,7 +50,7 @@ describe('SidebarSearchComponent', () => {
         HttpModule,
         JsonpModule
       ]
-    });
+    }).compileComponents();
   }));
 
   beforeEach(() => {
