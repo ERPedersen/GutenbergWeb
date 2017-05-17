@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "json": "json-server ./mockdata/api.json"
+    "json": "json-server ./mockdata/search.json"
   },
   "private": true,
   "dependencies": {
