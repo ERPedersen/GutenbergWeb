@@ -2,7 +2,7 @@
   "books": [
     {
       "UID": "1688020767999",
-      "title": "vitae, orci.",
+      "title": "Girl Without Honor",
       "text": "0",
       "authors": [
         {
@@ -50,7 +50,7 @@
     },
     {
       "UID": "1635122688799",
-      "title": "non massa non ante bibendum ullamcorper.",
+      "title": "Goddess Of Heaven",
       "text": "0",
       "authors": [
         {
@@ -117,7 +117,7 @@
     },
     {
       "UID": "1641072811299",
-      "title": "Donec Tempor",
+      "title": "Heirs Of Insanity",
       "text": "0",
       "authors": [
         {
@@ -129,7 +129,7 @@
     },
     {
       "UID": "1652110668599",
-      "title": "Turpis Aliquet Magna",
+      "title": "Knights Of Wood",
       "text": "0",
       "authors": [
         {
@@ -170,7 +170,7 @@
     },
     {
       "UID": "1650011145699",
-      "title": "nulla at sem molestie",
+      "title": "Pirates And Dogs",
       "text": "0",
       "authors": [
         {
@@ -208,7 +208,7 @@
     },
     {
       "UID": "1672090150899",
-      "title": "vitae nibh. Donec est mauris, rhoncus",
+      "title": "Phantoms And Lords",
       "text": "0",
       "authors": [
         {
@@ -229,7 +229,7 @@
     },
     {
       "UID": "1683100294799",
-      "title": "est, vitae sodales nisi magna sed",
+      "title": "World With Strength",
       "text": "0",
       "authors": [
         {
@@ -277,7 +277,7 @@
     },
     {
       "UID": "1625022653699",
-      "title": "iaculis enim, sit amet",
+      "title": "Result Of Darkness",
       "text": "0",
       "authors": [
         {
@@ -330,7 +330,7 @@
     },
     {
       "UID": "1660113043499",
-      "title": "senectus et netus et malesuada fames",
+      "title": "Trust The Mountains",
       "text": "0",
       "authors": [
         {
@@ -342,7 +342,7 @@
     },
     {
       "UID": "1643012885599",
-      "title": "imperdiet dictum",
+      "title": "Flee To The Apocolypse",
       "text": "0",
       "authors": [
         {
@@ -365,26 +365,63 @@
     },
     {
       "UID": "1606042436299",
-      "title": "purus. Maecenas libero est,",
+      "title": "Return of the Jedi",
       "text": "0",
       "authors": [
         {
           "UID": "1662052026099",
-          "name": "MacKensie Ryan"
+          "name": "George Lucas"
         }
       ],
       "locations": [
         {
-          "name": "Bruderheim",
+          "name": "Tatooine",
           "lat": "11.40292",
           "long": "157.14755"
         },
         {
-          "name": "Minturno",
+          "name": "Naboo",
           "lat": "-87.04052",
           "long": "-102.57267"
         }
       ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Jelenia Góra",
+      "lat": "-25.62095",
+      "long": "-35.59549"
+    },
+    {
+      "name": "Tywyn",
+      "lat": "-0.74589",
+      "long": "133.009"
+    },
+    {
+      "name": "Bruderheim",
+      "lat": "11.40292",
+      "long": "157.14755"
+    },
+    {
+      "name": "Minturno",
+      "lat": "-87.04052",
+      "long": "-102.57267"
+    },
+    {
+      "name": "Camporotondo di Fiastrone",
+      "lat": "-50.22198",
+      "long": "44.13452"
+    },
+    {
+      "name": "Ulloa (Barrial)",
+      "lat": "-82.79108",
+      "long": "82.81738"
+    },
+    {
+      "name": "Saint-LŽger",
+      "lat": "-36.16418",
+      "long": "95.61963"
     }
   ]
 }

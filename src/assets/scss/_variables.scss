@@ -1,8 +1,4 @@
-// Colors
-$color-primary:                       #F9690E;
-$color-dark:                          #2c3e50;
-$color-medium:                        #22313F;
-$color-white:                         #FFFFFF;
+@import "./colors";
 
 // Brand Colors
 $brand-primary:                       $color-primary;
@@ -22,8 +18,13 @@ $font-size-base:                      15px;
 $headings-font-family:                'Roboto', sans-serif;
 $headings-font-weight:                300;
 $headings-line-height:                1.1;
-$headings-color:                      $color-dark;
+$headings-color:                      $color-darkgrey;
 $font-size-h1:                        32px;
+$font-size-h2:                        28px;
+$font-size-h3:                        24px;
+$font-size-h4:                        20px;
+$font-size-h5:                        16px;
+$font-size-h6:                        12px;
 
 // Navbar
 $navbar-height:                       80px;

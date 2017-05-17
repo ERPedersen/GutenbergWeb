@@ -1,0 +1,23 @@
+<div id="sidebar-search">
+  <h3 class="title">What do you want to search for?</h3>
+
+  <div id="sidebar-search-type-group" class="form-group" [class.has-error]="errors.type">
+    <select id="sidebar-search-type" class="form-control" [(ngModel)]="type" (change)="validateType();" required>
+      <option value="" disabled selected>Select a search type</option>
+      <option value="author">Author name</option>
+      <option value="title">Title</option>
+    </select>
+  </div>
+
+  <div class="form-inline">
+    <div id="sidebar-search-query-group" class="form-group" [class.has-error]="errors.query">
+      <input id="sidebar-search-query" type="text" class="form-control" placeholder="Search..." (keyup)="validateQuery();" [(ngModel)]="query" required>
+    </div>
+    <button id="sidebar-search-button" class="btn btn-primary" (click)="formSubmit()" [disabled]="loading">
+      <span *ngIf="loading"><i class="fa fa-fw fa-refresh fa-spin"></i></span>
+      <span *ngIf="!loading">Search</span>
+    </button>
+  </div>
+
+
+</div>
