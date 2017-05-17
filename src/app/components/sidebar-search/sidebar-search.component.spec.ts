@@ -56,8 +56,8 @@ describe('SidebarSearchComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SidebarSearchComponent);
     component = fixture.componentInstance;
-    // bookService = TestBed.get(BookService);
-    // spyOn(bookService, 'getSubject').and.returnValue(Observable.of(SUBJECT));
+    bookService = TestBed.get(BookService);
+    spyOn(bookService, 'getSubject').and.returnValue(Observable.of(SUBJECT));
     fixture.detectChanges();
   });
 
