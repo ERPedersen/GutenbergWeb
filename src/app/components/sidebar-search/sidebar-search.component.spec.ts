@@ -51,6 +51,7 @@ describe('SidebarSearchComponent', () => {
         JsonpModule
       ]
     });
+    }).compileComponents();
   }));
 
   beforeEach(() => {
