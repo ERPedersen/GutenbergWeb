@@ -8,7 +8,7 @@ import {MapComponent} from "../map/map.component";
 import {FormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
 import {HttpModule, JsonpModule} from "@angular/http";
-import {BookService} from "../../services/book/book.service";
+import {SearchService} from "../../services/search/search.service";
 
 describe('AppComponent', () => {
 
@@ -25,7 +25,7 @@ describe('AppComponent', () => {
         SidebarResultsComponent
       ],
       providers: [
-        BookService
+        SearchService
       ],
       imports: [
         BrowserModule,

@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {SidebarSearchComponent} from './sidebar-search.component';
-import {BookService} from '../../services/book/book.service';
+import {SearchService} from '../../services/search/search.service';
 import {HttpModule, JsonpModule} from '@angular/http';
 import {FormsModule} from "@angular/forms";
 import {Observable} from "rxjs";
@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
 describe('SidebarSearchComponent', () => {
   let component: SidebarSearchComponent;
   let fixture: ComponentFixture<SidebarSearchComponent>;
-  let bookService: BookService;
+  let searchService: SearchService;
 
   const SUBJECT = [
     {
@@ -43,7 +43,7 @@ describe('SidebarSearchComponent', () => {
         SidebarSearchComponent
       ],
       providers: [
-        BookService
+        SearchService
       ],
       imports: [
         FormsModule,
@@ -56,9 +56,6 @@ describe('SidebarSearchComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SidebarSearchComponent);
     component = fixture.componentInstance;
-    bookService = TestBed.get(BookService);
-    spyOn(bookService, 'getSubject').and.returnValue(Observable.of(SUBJECT));
-    spyOn(bookService, 'getBooks').and.returnValue(Observable.of(SUBJECT));
     fixture.detectChanges();
   });
 
@@ -75,10 +72,11 @@ describe('SidebarSearchComponent', () => {
   });
 
   it('should validate the search form when type and query is set.', () => {
-    component.type = 'author';
+    component.type = 'authors';
     component.query = 'test';
     component.formSubmit();
     expect(component.errors.type).toBeFalsy();
     expect(component.errors.query).toBeFalsy();
   });
+
 });

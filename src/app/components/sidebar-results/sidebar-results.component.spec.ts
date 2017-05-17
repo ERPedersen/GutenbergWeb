@@ -1,6 +1,6 @@
 import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 import {SidebarResultsComponent} from "./sidebar-results.component";
-import {BookService} from "../../services/book/book.service";
+import {SearchService} from "../../services/search/search.service";
 import {JsonpModule, HttpModule} from "@angular/http";
 import {FormsModule} from "@angular/forms";
 
@@ -14,7 +14,7 @@ describe('SidebarResultsComponent', () => {
         SidebarResultsComponent
       ],
       providers: [
-        BookService
+        SearchService
       ],
       imports: [
         FormsModule,

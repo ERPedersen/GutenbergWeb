@@ -7,52 +7,78 @@
 }
 
 
-.book {
+//.book {
+//  padding: 24px 30px;
+//  border-bottom: 1px solid $color-grey;
+//
+//  h5.book-heading {
+//    font-weight: 500;
+//    margin-bottom: 10px;
+//    font-size: 18px;
+//
+//    i.fa {
+//      margin-right: 5px;
+//      margin-left: -2px;
+//      color: $color-primary;
+//    }
+//  }
+//
+//
+//
+//  p.book-authors {
+//    margin-bottom: 0;
+//    font-size: 13px;
+//
+//    span.book-authors-label {
+//      font-weight: 500;
+//      color: $headings-color;
+//    }
+//
+//    a {
+//      font-weight: 300;
+//      color: $text-color;
+//      transition: 400ms ease;
+//      transition-property: color;
+//
+//      &:hover {
+//        color: $color-primary;
+//      }
+//    }
+//  }
+//
+//  small.book-uid {
+//    span {
+//      font-weight: 500;
+//      color: $headings-color;
+//    }
+//
+//    color: $color-darkgrey;
+//  }
+//}
+
+.search-result {
   padding: 24px 30px;
   border-bottom: 1px solid $color-grey;
+  cursor: pointer;
+  transition: 400ms ease;
+  transition-property: background-color;
 
-  h5.book-heading {
-    font-weight: 500;
-    margin-bottom: 10px;
-    font-size: 18px;
+  &:hover {
+    background-color: $color-lightgrey;
+  }
 
-    i.fa {
-      margin-right: 5px;
-      margin-left: -2px;
+  h5 {
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+
+    i {
       color: $color-primary;
+      margin-right: 8px;
     }
+
   }
 
 
-
-  p.book-authors {
-    margin-bottom: 0;
-    font-size: 13px;
-
-    span.book-authors-label {
-      font-weight: 500;
-      color: $headings-color;
-    }
-
-    a {
-      font-weight: 300;
-      color: $text-color;
-      transition: 400ms ease;
-      transition-property: color;
-
-      &:hover {
-        color: $color-primary;
-      }
-    }
-  }
-
-  small.book-uid {
-    span {
-      font-weight: 500;
-      color: $headings-color;
-    }
-
-    color: $color-darkgrey;
-  }
 
 }

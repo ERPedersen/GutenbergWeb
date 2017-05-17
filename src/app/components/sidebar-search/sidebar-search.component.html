@@ -4,8 +4,9 @@
   <div id="sidebar-search-type-group" class="form-group" [class.has-error]="errors.type">
     <select id="sidebar-search-type" class="form-control" [(ngModel)]="type" (change)="validateType();" required>
       <option value="" disabled selected>Select a search type</option>
-      <option value="author">Author name</option>
-      <option value="title">Title</option>
+      <option value="authors">Author name</option>
+      <option value="books">Book title</option>
+      <option value="locations">City</option>
     </select>
   </div>
 
@@ -18,6 +19,4 @@
       <span *ngIf="!loading">Search</span>
     </button>
   </div>
-
-
 </div>

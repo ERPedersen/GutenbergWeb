@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {BookService} from '../../services/book/book.service';
+import {SearchService} from '../../services/search/search.service';
 
 
 @Component({
@@ -11,7 +11,6 @@ import {BookService} from '../../services/book/book.service';
 
 export class SidebarSearchComponent {
 
-  public books: any;
   public type: string;
   public query: string;
   public loading: boolean;
@@ -20,7 +19,7 @@ export class SidebarSearchComponent {
     query: false
   };
 
-  constructor(private bookService: BookService) {
+  constructor(private searchService: SearchService) {
     this.type = '';
     this.query = '';
   }
@@ -30,7 +29,7 @@ export class SidebarSearchComponent {
 
     if (!this.errors.type && !this.errors.query) {
       this.loading = true;
-      this.getBooks();
+      this.search(this.type, this.query);
     } else {
       console.log('Failed');
     }
@@ -49,10 +48,9 @@ export class SidebarSearchComponent {
     this.errors.query = this.query === '';
   }
 
-  private getBooks() {
-    this.bookService.getBooks().subscribe((books) => {
+  private search(type, query) {
+    this.searchService.getSearchResults(type, query).subscribe(() => {
       this.loading = false;
-      this.books = books;
     });
   }
 }

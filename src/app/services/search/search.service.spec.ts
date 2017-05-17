@@ -1,17 +1,17 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { BookService } from './book.service';
+import { SearchService } from './search.service';
 import {HttpModule} from '@angular/http';
 
-describe('BookService', () => {
+describe('SearchService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [BookService],
+      providers: [SearchService],
       imports: [HttpModule]
     });
   });
 
-  it('should ...', inject([BookService], (service: BookService) => {
+  it('should ...', inject([SearchService], (service: SearchService) => {
     expect(service).toBeTruthy();
   }));
 });
