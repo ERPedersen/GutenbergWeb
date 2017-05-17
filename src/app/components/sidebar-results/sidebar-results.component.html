@@ -1,3 +1,15 @@
-<div *ngFor="let b of books" class="book">
-  {{b.title}}
+<div id="sidebar-results">
+  <div *ngFor="let b of books" class="book">
+    <h5 class="book-heading"><i class="fa fa-fw fa-book"></i>{{b.title}}</h5>
+
+    <p class="book-authors">
+    <span class="book-authors-label">Authors:</span>
+    <span *ngFor="let a of b.authors; let i = index">
+      <a href="#">{{a.name}}<span *ngIf="i < b.authors.length - 1">,</span></a>
+    </span>
+    </p>
+
+    <small class="book-uid"><span>UID: </span>{{b.UID}}</small>
+
+  </div>
 </div>

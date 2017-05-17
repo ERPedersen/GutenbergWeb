@@ -29,8 +29,7 @@ export class SidebarSearchComponent {
 
     if (!this.errors.type && !this.errors.query) {
       this.loading = true;
-      // @todo: Simulate delay for testing purpose
-      setTimeout(() => this.getBooks(), 2000);
+      this.getBooks();
     } else {
       console.log('Failed');
     }
