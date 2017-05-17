@@ -386,6 +386,43 @@
         }
       ]
     }
+  ],
+  "locations": [
+    {
+      "name": "Jelenia Góra",
+      "lat": "-25.62095",
+      "long": "-35.59549"
+    },
+    {
+      "name": "Tywyn",
+      "lat": "-0.74589",
+      "long": "133.009"
+    },
+    {
+      "name": "Bruderheim",
+      "lat": "11.40292",
+      "long": "157.14755"
+    },
+    {
+      "name": "Minturno",
+      "lat": "-87.04052",
+      "long": "-102.57267"
+    },
+    {
+      "name": "Camporotondo di Fiastrone",
+      "lat": "-50.22198",
+      "long": "44.13452"
+    },
+    {
+      "name": "Ulloa (Barrial)",
+      "lat": "-82.79108",
+      "long": "82.81738"
+    },
+    {
+      "name": "Saint-LŽger",
+      "lat": "-36.16418",
+      "long": "95.61963"
+    }
   ]
 }
 
