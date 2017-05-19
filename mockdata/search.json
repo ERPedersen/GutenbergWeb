@@ -1,13 +1,13 @@
 {
-  "books": {
+  "fuzzybook": {
     "type": "books",
     "data": ["Book 1", "Book 2", "Book 3"]
   },
-  "authors": {
+  "fuzzyauthor": {
     "type": "authors",
-    "data": ["Emil", "Dennis", "Nicolai", "Ebbe"]
+    "data": ["Emil", "Dennis", "Nicolai", "Ebbe", "Test", "Test", "Test", "Test", "Test", "Test", "Test", "Test", "Test"]
   },
-  "locations": {
+  "fuzzylocation": {
     "type": "locations",
     "data": ["Copenhagen", "Stockholm", "Vojens", "London"]
   }
