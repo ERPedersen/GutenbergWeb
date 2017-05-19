@@ -11,7 +11,7 @@ import {SearchService} from '../../services/search/search.service';
 
 export class SidebarSearchComponent {
 
-  public books: any;
+  public results: any;
   public type: string;
   public query: string;
   public loading: boolean;
@@ -48,9 +48,9 @@ export class SidebarSearchComponent {
   }
 
   private search(type, query) {
-    this.searchService.getSearchResults(type, query).subscribe((books) => {
+    this.searchService.getSearchResults(type, query).subscribe((results) => {
       this.loading = false;
-      this.books = books;
+      this.results = results;
     });
   }
 }

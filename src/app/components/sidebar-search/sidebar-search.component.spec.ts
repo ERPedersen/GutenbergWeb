@@ -1,17 +1,15 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed, inject} from '@angular/core/testing';
 
 import {SidebarSearchComponent} from './sidebar-search.component';
 import {SearchService} from '../../services/search/search.service';
 import {HttpModule, JsonpModule, Http} from '@angular/http';
 import {FormsModule} from "@angular/forms";
 import {Observable} from "rxjs";
+import {SearchServiceMock} from "../../services/search/search.service.mock";
 
 describe('SidebarSearchComponent', () => {
   let component: SidebarSearchComponent;
   let fixture: ComponentFixture<SidebarSearchComponent>;
-  let searchService: SearchService;
-
-  const SEARCH_OBJECT = [{type: "books", data: ["1", "2", "3"]}];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -19,33 +17,22 @@ describe('SidebarSearchComponent', () => {
         SidebarSearchComponent
       ],
       providers: [
-        SearchService
+        {provide: SearchService, useClass: SearchServiceMock}
       ],
       imports: [
         FormsModule,
-        HttpModule,
-        JsonpModule
+        HttpModule
       ]
-    }).compileComponents();
+    });
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SidebarSearchComponent);
-    searchService = TestBed.get(SearchService);
-
-    spyOn(searchService, "getSearchResults").and.returnValue(Observable.of(SEARCH_OBJECT));
-    spyOn(searchService, "getSubject").and.returnValue(Observable.of(SEARCH_OBJECT));
-
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it('should construct', () => {
-    component.constructor(searchService);
     expect(component).toBeTruthy();
   });
 
@@ -77,11 +64,25 @@ describe('SidebarSearchComponent', () => {
     expect(component.errors.query).toBeFalsy();
   });
 
-  it('should return the books from the search.service', () => {
+  it('should give books when searching for books.', () => {
+    component.type = 'books';
+    component.query = 'test';
+    component.formSubmit();
+    expect(component.results.type).toBe('books');
+  });
+
+  it('should give authors when searching for authors.', () => {
     component.type = 'authors';
     component.query = 'test';
     component.formSubmit();
-    expect(component.books).toBe(SEARCH_OBJECT);
+    expect(component.results.type).toBe('authors');
+  });
+
+  it('should give locations when searching for books.', () => {
+    component.type = 'locations';
+    component.query = 'test';
+    component.formSubmit();
+    expect(component.results.type).toBe('locations');
   });
 
 });
