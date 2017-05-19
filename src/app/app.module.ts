@@ -21,8 +21,7 @@ import {SearchService} from "./services/search/search.service";
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
-    JsonpModule
+    HttpModule
   ],
   providers: [SearchService],
   bootstrap: [AppComponent]

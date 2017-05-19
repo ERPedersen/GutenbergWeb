@@ -2,7 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {SidebarSearchComponent} from './sidebar-search.component';
 import {SearchService} from '../../services/search/search.service';
-import {HttpModule, JsonpModule} from '@angular/http';
+import {HttpModule, JsonpModule, Http} from '@angular/http';
 import {FormsModule} from "@angular/forms";
 import {Observable} from "rxjs";
 
@@ -44,6 +44,23 @@ describe('SidebarSearchComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should construct', () => {
+    component.constructor(searchService);
+    expect(component).toBeTruthy();
+  });
+
+  it('should invalidate the search query if empty', () => {
+    component.query = '';
+    component.validateQuery();
+    expect(component.errors.query).toBeTruthy();
+  });
+
+  it('should invalidate the search type if empty', () => {
+    component.type = '';
+    component.validateType();
+    expect(component.errors.type).toBeTruthy();
+  });
+
   it('should invalidate the search form when type or query is empty.', () => {
     component.type = '';
     component.query = '';
@@ -58,6 +75,13 @@ describe('SidebarSearchComponent', () => {
     component.formSubmit();
     expect(component.errors.type).toBeFalsy();
     expect(component.errors.query).toBeFalsy();
+  });
+
+  it('should return the books from the search.service', () => {
+    component.type = 'authors';
+    component.query = 'test';
+    component.formSubmit();
+    expect(component.books).toBe(SEARCH_OBJECT);
   });
 
 });

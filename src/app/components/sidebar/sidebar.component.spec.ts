@@ -23,8 +23,7 @@ describe('SidebarComponent', () => {
       ],
       imports: [
         FormsModule,
-        HttpModule,
-        JsonpModule
+        HttpModule
       ]
     })
     .compileComponents();

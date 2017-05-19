@@ -11,6 +11,7 @@ import {SearchService} from '../../services/search/search.service';
 
 export class SidebarSearchComponent {
 
+  public books: any;
   public type: string;
   public query: string;
   public loading: boolean;
@@ -30,8 +31,6 @@ export class SidebarSearchComponent {
     if (!this.errors.type && !this.errors.query) {
       this.loading = true;
       this.search(this.type, this.query);
-    } else {
-      console.log('Failed');
     }
   }
 
@@ -49,8 +48,9 @@ export class SidebarSearchComponent {
   }
 
   private search(type, query) {
-    this.searchService.getSearchResults(type, query).subscribe(() => {
+    this.searchService.getSearchResults(type, query).subscribe((books) => {
       this.loading = false;
+      this.books = books;
     });
   }
 }
