@@ -31,7 +31,7 @@ describe('SearchService', () => {
           mockResponse.type = "books";
         } else if (connection.request.url.indexOf("fuzzyauthor") >= 0) {
           mockResponse.type = "authors";
-        } else if (connection.request.url.indexOf("fuzzycity") >= 0) {
+        } else if (connection.request.url.indexOf("fuzzylocation") >= 0) {
           mockResponse.type = "locations";
         }
 

@@ -19,21 +19,32 @@ export class SearchService {
 
     switch (type) {
       case "books":
-        uri = "http://localhost:8080/api/mysql/fuzzybook/" + encodeURIComponent(query);
+        uri = "http://localhost:8080/fuzzybook/?q=" + encodeURIComponent(query);
         break;
       case "authors":
-        uri = "http://localhost:8080/api/mysql/fuzzyauthor/" + encodeURIComponent(query);
+        uri = "http://localhost:8080/fuzzyauthor/?q=" + encodeURIComponent(query);
         break;
       case "locations":
-        uri = "http://localhost:8080/api/mysql/fuzzycity/" + encodeURIComponent(query);
+        uri = "http://localhost:8080/fuzzylocation/?q=" + encodeURIComponent(query);
         break;
     }
 
-    return this.http.get(uri).
-      do(res => this.searchResultsChanged$.next(res.json()));
+    return this.http.get(uri)
+      .do((res) => {
+        let json = res.json();
+        json.query = query;
+        this.searchResultsChanged$.next(json)
+      })
+      .catch(() => {
+        let error = {type: type, query: query, data: [], error: true};
+        this.searchResultsChanged$.next(error);
+        return Observable.throw(error);
+      });
   }
 
   public getSubject(): Observable<any> {
     return this.searchResultsChanged$.asObservable();
   }
+
+
 }

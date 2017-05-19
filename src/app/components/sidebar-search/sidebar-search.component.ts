@@ -51,6 +51,9 @@ export class SidebarSearchComponent {
     this.searchService.getSearchResults(type, query).subscribe((results) => {
       this.loading = false;
       this.results = results;
+    }, (error) => {
+      this.loading = false;
+      this.results = error;
     });
   }
 }

@@ -2,8 +2,55 @@
 @import '../../../assets/scss/variables';
 
 #sidebar-results {
-  overflow-y: scroll;
-  max-height: calc(100% - 189px);
+  max-height: calc(100vh - 189px);
+
+  .descriptor {
+    padding: 24px 30px;
+    border-bottom: 1px solid $color-grey;
+
+    h5 {
+      margin: 0;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+
+      span {
+        font-weight: 500;
+      }
+    }
+
+    &.error h5 {
+      color: $color-error;
+    }
+  }
+
+  .results {
+    max-height: calc(100vh - 189px - 70px);
+    overflow-y: scroll;
+
+    .search-result {
+      padding: 24px 30px;
+      border-bottom: 1px solid $color-grey;
+      cursor: pointer;
+      transition: 400ms ease;
+      transition-property: background-color;
+
+      &:hover {
+        background-color: $color-lightgrey;
+      }
+
+      h5 {
+        line-height: 1;
+        padding: 0;
+        margin: 0;
+
+        i {
+          color: $color-primary;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
 }
 
 
@@ -55,30 +102,3 @@
 //    color: $color-darkgrey;
 //  }
 //}
-
-.search-result {
-  padding: 24px 30px;
-  border-bottom: 1px solid $color-grey;
-  cursor: pointer;
-  transition: 400ms ease;
-  transition-property: background-color;
-
-  &:hover {
-    background-color: $color-lightgrey;
-  }
-
-  h5 {
-    line-height: 1;
-    padding: 0;
-    margin: 0;
-
-    i {
-      color: $color-primary;
-      margin-right: 8px;
-    }
-
-  }
-
-
-
-}

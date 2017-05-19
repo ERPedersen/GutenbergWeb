@@ -6,12 +6,12 @@ import {Subscription} from 'rxjs';
   moduleId: module.id,
   selector: 'app-sidebar-results',
   templateUrl: './sidebar-results.component.html',
-  styleUrls: ['./sidebar-results.component.scss'],
-  inputs: ['books']
+  styleUrls: ['./sidebar-results.component.scss']
 })
 export class SidebarResultsComponent implements OnInit, OnDestroy {
 
   public results;
+  public hasSearched;
   public subscription: Subscription;
 
   constructor(private searchService: SearchService) {
@@ -19,6 +19,7 @@ export class SidebarResultsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.searchService.getSubject().subscribe(results => this.setSearchResults(results));
+    this.hasSearched = false;
   }
 
   ngOnDestroy(): void {
@@ -27,6 +28,7 @@ export class SidebarResultsComponent implements OnInit, OnDestroy {
 
   private setSearchResults(results) {
     this.results = results;
+    this.hasSearched = true;
   }
 
 }
