@@ -42,21 +42,37 @@ describe('SearchService', () => {
     }));
 
     it('should return books if type is books.', inject([SearchService], (service: SearchService) => {
+
+      let r;
+      service.getSubject().subscribe(results => r = results);
+
       service.getSearchResults("books", "test").subscribe((books) => {
         expect(books.json().type).toBe("books");
+        expect(r.type).toBe("books");
       });
     }));
 
     it('should return authors if type is authors.', inject([SearchService], (service: SearchService) => {
+
+      let r;
+      service.getSubject().subscribe(results => r = results);
+
       service.getSearchResults("authors", "test").subscribe((authors) => {
         expect(authors.json().type).toBe("authors");
+        expect(r.type).toBe("authors");
       });
     }));
 
     it('should return locations if type is locations.', inject([SearchService], (service: SearchService) => {
+
+      let r;
+      service.getSubject().subscribe(results => r = results);
+
       service.getSearchResults("locations", "test").subscribe((locations) => {
         expect(locations.json().type).toBe("locations");
+        expect(r.type).toBe("locations");
       });
     }));
+
   });
 });
