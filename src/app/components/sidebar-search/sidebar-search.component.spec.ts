@@ -11,31 +11,7 @@ describe('SidebarSearchComponent', () => {
   let fixture: ComponentFixture<SidebarSearchComponent>;
   let searchService: SearchService;
 
-  const SUBJECT = [
-    {
-      UID: 1643012885599,
-      title: "Flee To The Apocolypse",
-      text: 0,
-      authors: [
-        {
-          UID: 1633031650299,
-          name: "Sade J. Estrada"
-        }
-      ],
-      locations: [
-        {
-          name: "Crystal Springs",
-          lat: -66.18598,
-          long: 148.63678
-        },
-        {
-          name: "Blue Mountains",
-          lat: 35.64578,
-          long: 126.71533
-        }
-      ]
-    }
-  ];
+  const SEARCH_OBJECT = [{type: "books", data: ["1", "2", "3"]}];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -55,6 +31,11 @@ describe('SidebarSearchComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SidebarSearchComponent);
+    searchService = TestBed.get(SearchService);
+
+    spyOn(searchService, "getSearchResults").and.returnValue(Observable.of(SEARCH_OBJECT));
+    spyOn(searchService, "getSubject").and.returnValue(Observable.of(SEARCH_OBJECT));
+
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

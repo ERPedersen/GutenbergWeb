@@ -19,13 +19,13 @@ export class SearchService {
 
     switch (type) {
       case "books":
-        uri = "http://localhost:3000/books?query=" + encodeURIComponent(query);
+        uri = "http://localhost:8080/api/mysql/fuzzybook/" + encodeURIComponent(query);
         break;
       case "authors":
-        uri = "http://localhost:3000/authors?query=" + encodeURIComponent(query);
+        uri = "http://localhost:8080/api/mysql/fuzzyauthor/" + encodeURIComponent(query);
         break;
       case "locations":
-        uri = "http://localhost:3000/locations?query=" + encodeURIComponent(query);
+        uri = "http://localhost:8080/api/mysql/fuzzycity/" + encodeURIComponent(query);
         break;
     }
 
