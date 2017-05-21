@@ -46,7 +46,25 @@ export class DataService {
         this.resultsChanged$.next(error);
         return Observable.throw(error);
       });
+  }
 
+  public getCitiesFromBook(bookTitle: string): any {
+
+    let uri = "http://localhost:8080/citiesfrombook?q=" + encodeURIComponent(bookTitle);
+
+    return this.http.get(uri)
+      .do((res) => {
+        let json = res.json();
+        json.bookTitle = bookTitle;
+        json.search = false;
+        json.type = "getCitiesFromBook";
+        this.resultsChanged$.next(json)
+      })
+      .catch(() => {
+        let error = {bookTitle: bookTitle, data: [], error: true, search: false, type: "getCitiesFromBook"};
+        this.resultsChanged$.next(error);
+        return Observable.throw(error);
+      });
   }
 
   public getSubject(): Observable<any> {
