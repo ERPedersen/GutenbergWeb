@@ -30,6 +30,9 @@ describe('DataService', () => {
         if (connection.request.url.indexOf("booksfromauthor") >= 0) {
           mockResponse.type = "getBooksFromAuthor";
           mockResponse.authorName = "Luke Skywalker";
+        } else if (connection.request.url.indexOf("booksfromcity") >= 0) {
+          mockResponse.type = "getBooksFromCity";
+          mockResponse.cityName = "Copenhagen";
         }
 
         connection.mockRespond(new Response(new ResponseOptions({
@@ -38,19 +41,37 @@ describe('DataService', () => {
       });
     }));
 
-    it('should get the books from the api, and modify the response accordingly.', inject([DataService], (service: DataService) => {
-      let r;
+    it('should get books from author, and modify the response accordingly.',
+      inject([DataService], (service: DataService) => {
+        let r;
 
-      service.getSubject().subscribe((results) => r = results);
+        service.getSubject().subscribe((results) => r = results);
 
-      service.getBooksFromAuthor("Luke Skywalker").subscribe((res) => {
-        expect(res.json().type).toBe("getBooksFromAuthor");
-        expect(res.json().authorName).toBe("Luke Skywalker");
+        service.getBooksFromAuthor("Luke Skywalker").subscribe((res) => {
+          expect(res.json().type).toBe("getBooksFromAuthor");
+          expect(res.json().authorName).toBe("Luke Skywalker");
 
-        expect(r.type).toBe("getBooksFromAuthor");
-        expect(r.authorName).toBe("Luke Skywalker");
-      });
+          expect(r.type).toBe("getBooksFromAuthor");
+          expect(r.authorName).toBe("Luke Skywalker");
+        });
+      })
+    );
 
-    }));
+    it('should get books from city, and modify the response accordingly.',
+      inject([DataService], (service: DataService) => {
+        let r;
+
+        service.getSubject().subscribe((results) => r = results);
+
+        service.getBooksFromCity("Copenhagen").subscribe((res) => {
+          expect(res.json().type).toBe("getBooksFromCity");
+          expect(res.json().cityName).toBe("Copenhagen");
+
+          expect(r.type).toBe("getBooksFromCity");
+          expect(r.cityName).toBe("Copenhagen");
+        });
+      })
+    );
+
   });
 });

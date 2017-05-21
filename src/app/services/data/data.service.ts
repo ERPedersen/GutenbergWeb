@@ -29,6 +29,26 @@ export class DataService {
       });
   }
 
+  public getBooksFromCity(cityName: string): any {
+
+    let uri = "http://localhost:8080/booksfromcity?q=" + encodeURIComponent(cityName);
+
+    return this.http.get(uri)
+      .do((res) => {
+        let json = res.json();
+        json.cityName = cityName;
+        json.search = false;
+        json.type = "getBooksFromCity";
+        this.resultsChanged$.next(json)
+      })
+      .catch(() => {
+        let error = {authorName: cityName, data: [], error: true, search: false, type: "getBooksFromCity"};
+        this.resultsChanged$.next(error);
+        return Observable.throw(error);
+      });
+
+  }
+
   public getSubject(): Observable<any> {
     return this.resultsChanged$.asObservable();
   }
