@@ -36,6 +36,10 @@ describe('DataService', () => {
         } else if (connection.request.url.indexOf("citiesfrombook") >= 0) {
           mockResponse.type = "getCitiesFromBook";
           mockResponse.bookTitle = "Angular 4: From Theory To Practice";
+        } else if (connection.request.url.indexOf("booksfromlatlong") >= 0) {
+          mockResponse.type = "getBooksFromLatLong";
+          mockResponse.lat = 1.2345;
+          mockResponse.long = 5.4321;
         }
 
         connection.mockRespond(new Response(new ResponseOptions({
@@ -88,6 +92,24 @@ describe('DataService', () => {
 
           expect(r.type).toBe("getCitiesFromBook");
           expect(r.bookTitle).toBe("Angular 4: From Theory To Practice");
+        });
+      })
+    );
+
+    it('should get books from lat/long, and modify the response accordingly.',
+      inject([DataService], (service: DataService) => {
+        let r;
+
+        service.getSubject().subscribe((results) => r = results);
+
+        service.getBooksFromLatLong(1.2345, 5.4321).subscribe((res) => {
+          expect(res.json().type).toBe("getBooksFromLatLong");
+          expect(res.json().lat).toBe(1.2345);
+          expect(res.json().long).toBe(5.4321);
+
+          expect(r.type).toBe("getBooksFromLatLong");
+          expect(r.lat).toBe(1.2345);
+          expect(r.long).toBe(5.4321);
         });
       })
     );

@@ -67,6 +67,25 @@ export class DataService {
       });
   }
 
+  public getBooksFromLatLong(lat: number, long: number): any {
+
+    let uri = "http://localhost:8080/booksfromlatlong?lat=" + lat + "&long=" + long;
+
+    return this.http.get(uri)
+      .do((res) => {
+        let json = res.json();
+        json.lat = lat;
+        json.long = long;
+        json.search = false;
+        json.type = "getBooksFromLatLong";
+        this.resultsChanged$.next(json)
+      }).catch(() => {
+        let error = {lat: lat, long: long, data: [], error: true, search: false, type: "getBooksFromLatLong"};
+        this.resultsChanged$.next(error);
+        return Observable.throw(error);
+      });
+  }
+
   public getSubject(): Observable<any> {
     return this.resultsChanged$.asObservable();
   }
