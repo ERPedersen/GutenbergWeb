@@ -29,7 +29,7 @@ before_script:
 
 script:
   - ng build --prod
-  - ng test --watch false --log-level verbose
+  - ng test --code-coverage --watch false --log-level verbose
   - ng e2e
 
 after_success:
