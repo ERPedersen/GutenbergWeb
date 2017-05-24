@@ -38,7 +38,7 @@
     </div>
 
     <div *ngIf="results.type === 'city'">
-      <div *ngFor="let l of results.data" class="search-result">
+      <div *ngFor="let l of results.data" class="search-result" (click)="getBooksFromCity(l)">
         <h5 class="title"><i class="fa fa-map-marker"></i>{{l}}</h5>
       </div>
     </div>
