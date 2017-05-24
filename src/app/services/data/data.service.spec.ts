@@ -71,8 +71,8 @@ describe('DataService', () => {
         service.getSubject().subscribe((results) => r = results);
 
         service.getBooksFromCity("Copenhagen").subscribe((res) => {
-          expect(res.json().type).toBe("getBooksFromCity");
-          expect(res.json().cityName).toBe("Copenhagen");
+          expect(res.type).toBe("getBooksFromCity");
+          expect(res.cityName).toBe("Copenhagen");
 
           expect(r.type).toBe("getBooksFromCity");
           expect(r.cityName).toBe("Copenhagen");

@@ -34,15 +34,16 @@ export class DataService {
 
   public getBooksFromCity(cityName: string): any {
 
-    let uri = "http://localhost:8080/booksfromcity?q=" + encodeURIComponent(cityName);
+    let uri = this.baseUrl + "/book/city?q=" + encodeURIComponent(cityName);
 
     return this.http.get(uri)
-      .do((res) => {
+      .map((res) => {
         let json = res.json();
         json.cityName = cityName;
         json.search = false;
         json.type = "getBooksFromCity";
-        this.resultsChanged$.next(json)
+        this.resultsChanged$.next(json);
+        return json;
       })
       .catch(() => {
         let error = {authorName: cityName, data: [], error: true, search: false, type: "getBooksFromCity"};

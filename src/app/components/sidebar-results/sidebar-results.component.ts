@@ -46,4 +46,10 @@ export class SidebarResultsComponent implements OnInit, OnDestroy {
     });
   }
 
+  getBooksFromCity(city: string): void {
+    this.dataService.getBooksFromCity(city).subscribe((res) => {
+      this.results = res;
+    });
+  }
+
 }
