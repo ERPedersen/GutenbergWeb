@@ -27,13 +27,13 @@ describe('DataService', () => {
 
         let mockResponse: any = {type: "", data: [], search: false};
 
-        if (connection.request.url.indexOf("booksfromauthor") >= 0) {
+        if (connection.request.url.indexOf("book/author") >= 0) {
           mockResponse.type = "getBooksFromAuthor";
           mockResponse.authorName = "Luke Skywalker";
-        } else if (connection.request.url.indexOf("booksfromcity") >= 0) {
+        } else if (connection.request.url.indexOf("book/city") >= 0) {
           mockResponse.type = "getBooksFromCity";
           mockResponse.cityName = "Copenhagen";
-        } else if (connection.request.url.indexOf("citiesfrombook") >= 0) {
+        } else if (connection.request.url.indexOf("locations") >= 0) {
           mockResponse.type = "getCitiesFromBook";
           mockResponse.bookTitle = "Angular 4: From Theory To Practice";
         } else if (connection.request.url.indexOf("booksfromlatlong") >= 0) {
@@ -55,8 +55,8 @@ describe('DataService', () => {
         service.getSubject().subscribe((results) => r = results);
 
         service.getBooksFromAuthor("Luke Skywalker").subscribe((res) => {
-          expect(res.json().type).toBe("getBooksFromAuthor");
-          expect(res.json().authorName).toBe("Luke Skywalker");
+          expect(res.type).toBe("getBooksFromAuthor");
+          expect(res.authorName).toBe("Luke Skywalker");
 
           expect(r.type).toBe("getBooksFromAuthor");
           expect(r.authorName).toBe("Luke Skywalker");

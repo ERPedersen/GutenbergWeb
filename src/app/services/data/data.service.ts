@@ -15,15 +15,16 @@ export class DataService {
 
   public getBooksFromAuthor(authorName: string): any {
 
-    let uri = "http://localhost:8080/booksfromauthor?q=" + encodeURIComponent(authorName);
+    let uri = this.baseUrl + "/book/author?q=" + encodeURIComponent(authorName);
 
     return this.http.get(uri)
-      .do((res) => {
+      .map((res) => {
         let json = res.json();
         json.authorName = authorName;
         json.search = false;
         json.type = "getBooksFromAuthor";
-        this.resultsChanged$.next(json)
+        this.resultsChanged$.next(json);
+        return json;
       })
       .catch(() => {
         let error = {authorName: authorName, data: [], error: true, search: false, type: "getBooksFromAuthor"};

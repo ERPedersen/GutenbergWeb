@@ -52,4 +52,10 @@ export class SidebarResultsComponent implements OnInit, OnDestroy {
     });
   }
 
+  getBooksFromAuthor(authorName: string): void {
+    this.dataService.getBooksFromAuthor(authorName).subscribe((res) => {
+      this.results = res;
+    });
+  }
+
 }
