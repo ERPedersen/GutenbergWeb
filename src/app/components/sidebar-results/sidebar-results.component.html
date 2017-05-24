@@ -1,12 +1,25 @@
 <div id="sidebar-results">
 
+  <div class="overlay" *ngIf="searching">
+    <div class="loading">
+      <i class="fa fa-fw fa-refresh fa-spin"></i>
+      <p>Fetching Results</p>
+    </div>
+  </div>
+
   <div class="descriptor" *ngIf="!hasSearched">
     <h5>Search for a book, author or location.</h5>
   </div>
 
   <div class="descriptor" *ngIf="hasSearched && !results.error">
-    <h5 *ngIf="results.type === 'book' || results.type === 'author' || results.type === 'city'">
-      Showing {{results.type}} matching <span>{{results.query}}</span>.
+    <h5 *ngIf="results.type === 'book'">
+      Showing books matching <span>{{results.query}}</span>.
+    </h5>
+    <h5 *ngIf="results.type === 'author'">
+      Showing authors matching <span>{{results.query}}</span>.
+    </h5>
+    <h5 *ngIf="results.type === 'city'">
+      Showing cities matching <span>{{results.query}}</span>.
     </h5>
     <h5 *ngIf="results.type === 'getCitiesFromBook'">
       Showing locations mentioned in <span>{{results.bookTitle}}</span>.
@@ -20,7 +33,15 @@
   </div>
 
   <div class="descriptor error" *ngIf="hasSearched && results.error">
-    <h5>No {{results.type}} found matching <span>{{results.query}}</span>.</h5>
+    <h5 *ngIf="results.type === 'book'">
+      No books found matching <span>{{results.query}}</span>.
+    </h5>
+    <h5 *ngIf="results.type === 'author'">
+      No authors found matching <span>{{results.query}}</span>.
+    </h5>
+    <h5 *ngIf="results.type === 'city'">
+      No cities found matching <span>{{results.query}}</span>.
+    </h5>
   </div>
 
   <div class="results">
