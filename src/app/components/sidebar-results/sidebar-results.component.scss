@@ -94,6 +94,9 @@
     font-weight: 500;
     margin-bottom: 10px;
     font-size: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 
     i.fa {
       margin-right: 5px;
@@ -148,6 +151,9 @@
     font-weight: 500;
     margin-bottom: 10px;
     font-size: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 
     i.fa {
       margin-right: 5px;
