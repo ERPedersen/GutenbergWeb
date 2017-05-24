@@ -7,5 +7,10 @@
     float: left;
     background-color: $color-dark;
     height: 100vh;
+
+    agm-map {
+      height: 100%;
+    }
+
   }
 }
