@@ -27,12 +27,12 @@ describe('SearchService', () => {
       mockBackend.connections.subscribe((connection: MockConnection) => {
         let mockResponse = {type: "", data: []};
 
-        if (connection.request.url.indexOf("fuzzybook") >= 0) {
-          mockResponse.type = "books";
-        } else if (connection.request.url.indexOf("fuzzyauthor") >= 0) {
-          mockResponse.type = "authors";
-        } else if (connection.request.url.indexOf("fuzzylocation") >= 0) {
-          mockResponse.type = "locations";
+        if (connection.request.url.indexOf("book") >= 0) {
+          mockResponse.type = "book";
+        } else if (connection.request.url.indexOf("author") >= 0) {
+          mockResponse.type = "author";
+        } else if (connection.request.url.indexOf("location") >= 0) {
+          mockResponse.type = "location";
         }
 
         connection.mockRespond(new Response(new ResponseOptions({
@@ -41,36 +41,36 @@ describe('SearchService', () => {
       });
     }));
 
-    it('should return books if type is books.', inject([SearchService], (service: SearchService) => {
+    it('should return books if type is book.', inject([SearchService], (service: SearchService) => {
 
       let r;
       service.getSubject().subscribe(results => r = results);
 
-      service.getSearchResults("books", "test").subscribe((books) => {
-        expect(books.json().type).toBe("books");
-        expect(r.type).toBe("books");
+      service.getSearchResults("book", "test").subscribe((books) => {
+        expect(books.json().type).toBe("book");
+        expect(r.type).toBe("book");
       });
     }));
 
-    it('should return authors if type is authors.', inject([SearchService], (service: SearchService) => {
+    it('should return authors if type is author.', inject([SearchService], (service: SearchService) => {
 
       let r;
       service.getSubject().subscribe(results => r = results);
 
-      service.getSearchResults("authors", "test").subscribe((authors) => {
-        expect(authors.json().type).toBe("authors");
-        expect(r.type).toBe("authors");
+      service.getSearchResults("author", "test").subscribe((authors) => {
+        expect(authors.json().type).toBe("author");
+        expect(r.type).toBe("author");
       });
     }));
 
-    it('should return locations if type is locations.', inject([SearchService], (service: SearchService) => {
+    it('should return locations if type is location.', inject([SearchService], (service: SearchService) => {
 
       let r;
       service.getSubject().subscribe(results => r = results);
 
-      service.getSearchResults("locations", "test").subscribe((locations) => {
-        expect(locations.json().type).toBe("locations");
-        expect(r.type).toBe("locations");
+      service.getSearchResults("location", "test").subscribe((locations) => {
+        expect(locations.json().type).toBe("location");
+        expect(r.type).toBe("location");
       });
     }));
 

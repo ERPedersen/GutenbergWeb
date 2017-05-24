@@ -20,13 +20,13 @@
       </div>
     </div>
 
-    <div *ngIf="results.type === 'authors'">
+    <div *ngIf="results.type === 'author'">
       <div *ngFor="let a of results.data" class="search-result">
         <h5 class="title"><i class="fa fa-user"></i>{{a}}</h5>
       </div>
     </div>
 
-    <div *ngIf="results.type === 'locations'">
+    <div *ngIf="results.type === 'location'">
       <div *ngFor="let l of results.data" class="search-result">
         <h5 class="title"><i class="fa fa-map-marker"></i>{{l}}</h5>
       </div>

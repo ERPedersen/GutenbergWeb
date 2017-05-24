@@ -9,8 +9,10 @@ import {BehaviorSubject, Observable} from "rxjs";
 export class SearchService {
 
   searchResultsChanged$: BehaviorSubject<any> = new BehaviorSubject([]);
+  private baseUrl: string;
 
   constructor(private http: Http) {
+    this.baseUrl = "http://zesty.emilrosenius.dk:8080/api/mysql"
   }
 
   public getSearchResults(type, query) {
@@ -18,14 +20,14 @@ export class SearchService {
     let uri: string;
 
     switch (type) {
-      case "books":
-        uri = "http://localhost:8080/fuzzybook/?q=" + encodeURIComponent(query);
+      case "book":
+        uri = this.baseUrl + "/search/book?q=" + encodeURIComponent(query);
         break;
-      case "authors":
-        uri = "http://localhost:8080/fuzzyauthor/?q=" + encodeURIComponent(query);
+      case "author":
+        uri = this.baseUrl + "/search/author?q=" + encodeURIComponent(query);
         break;
-      case "locations":
-        uri = "http://localhost:8080/fuzzylocation/?q=" + encodeURIComponent(query);
+      case "location":
+        uri = this.baseUrl + "/search/location?q=" + encodeURIComponent(query);
         break;
     }
 
@@ -33,6 +35,17 @@ export class SearchService {
       .do((res) => {
         let json = res.json();
         json.query = query;
+
+        for (let e of json.data) {
+          e = e.trim();
+        }
+
+        json.data.sort((a, b) => {
+          if (a < b ) return -1;
+          if (a > b ) return 1;
+          return 0;
+        });
+
         this.searchResultsChanged$.next(json)
       })
       .catch(() => {
