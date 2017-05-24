@@ -40,6 +40,7 @@ describe('DataService', () => {
           mockResponse.type = "getBooksFromLatLong";
           mockResponse.lat = 1.2345;
           mockResponse.long = 5.4321;
+          mockResponse.rad = 1000;
         }
 
         connection.mockRespond(new Response(new ResponseOptions({
@@ -103,13 +104,15 @@ describe('DataService', () => {
         service.getSubject().subscribe((results) => r = results);
 
         service.getBooksFromLatLong(1.2345, 5.4321).subscribe((res) => {
-          expect(res.json().type).toBe("getBooksFromLatLong");
-          expect(res.json().lat).toBe(1.2345);
-          expect(res.json().long).toBe(5.4321);
+          expect(res.type).toBe("getBooksFromLatLong");
+          expect(res.lat).toBe(1.2345);
+          expect(res.long).toBe(5.4321);
+          expect(res.rad).toBe(1000);
 
           expect(r.type).toBe("getBooksFromLatLong");
           expect(r.lat).toBe(1.2345);
           expect(r.long).toBe(5.4321);
+          expect(r.rad).toBe(1000);
         });
       })
     );

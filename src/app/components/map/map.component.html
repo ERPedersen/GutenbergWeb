@@ -1,8 +1,8 @@
 <div id="map">
   <div class="map-container">
     <agm-map [(latitude)]="lat" [(longitude)]="lng" [(zoom)]="zoom" (mapClick)="mapClicked($event)">
-      <agm-marker *ngFor="let m of markers" [latitude]="m.lat" [longitude]="m.lng"></agm-marker>
-      <agm-circle [latitude]="circle.lat" [longitude]="circle.lng" [radius]="1000000" [(visible)]="circle.visible"></agm-circle>
+      <agm-marker *ngFor="let m of markers" [latitude]="m.latitude" [longitude]="m.longitude" [markerDraggable]="true"></agm-marker>
+      <agm-circle [latitude]="circle.lat" [longitude]="circle.lng" [radius]="100000" [(visible)]="circle.visible"></agm-circle>
     </agm-map>
   </div>
 </div>

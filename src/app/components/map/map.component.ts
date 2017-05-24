@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {DataService} from "../../services/data/data.service";
+import * as _ from "lodash";
 
 @Component({
   moduleId: module.id,
@@ -31,17 +32,21 @@ export class MapComponent implements OnInit {
 
   public addMapMarker(results) {
 
-    if (results.type === "getBooksFromAuthor") {
-      let markers = [];
-      let books = results.data;
+    if (results.type === "getBooksFromAuthor" || results.type === "getBooksFromLatLong") {
+      let locations = [];
+      let flags = {};
 
-      for (let b in books) {
-        let locations = results.data[b].locations;
-        for (let i in locations) {
-          markers.push({lat: locations[i].latitude, lng: locations[i].longitude})
-        }
+      for (let b in results.data) {
+        locations.push(... results.data[b].locationsWithinRadius);
+      }
 
-        this.markers = markers;
+      this.markers = locations.filter((e) => {
+        if (flags[e.UID]) return false;
+        flags[e.UID] = true;
+        return true;
+      });
+
+      if (results.type === "getBooksFromAuthor") {
         this.zoom = 3;
       }
     }
@@ -56,6 +61,8 @@ export class MapComponent implements OnInit {
     this.circle.visible = true;
 
     // Make lat long query
+    this.dataService.getBooksFromLatLong($event.coords.lat, $event.coords.lng)
+      .subscribe(res => this.addMapMarker(res));
 
   }
 
