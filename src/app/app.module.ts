@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import {AgmCoreModule} from '@agm/core';
 
 import {AppComponent} from './components/app/app.component';
 import {MapComponent} from './components/map/map.component';
@@ -22,7 +23,10 @@ import {DataService} from "./services/data/data.service";
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAtZnU28zd51Mfl2hv8JLKHKoH7Ja-JpyQ'
+    })
   ],
   providers: [SearchService, DataService],
   bootstrap: [AppComponent]

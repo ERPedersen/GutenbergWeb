@@ -75,17 +75,18 @@ export class DataService {
 
   public getBooksFromLatLong(lat: number, long: number): any {
 
-    let uri = "http://localhost:8080/booksfromlatlong?lat=" + lat + "&long=" + long;
+    let uri = this.baseUrl + "/book/location?lat=" + lat + "&long=" + long + "&rad=100&lim=200";
 
     return this.http.get(uri)
-      .do((res) => {
+      .map((res) => {
         let json = res.json();
         json.lat = lat;
         json.long = long;
         json.search = false;
         json.type = "getBooksFromLatLong";
-        this.resultsChanged$.next(json)
-      }).catch(() => {
+        this.resultsChanged$.next(json);
+        return json;
+      }).catch((res) => {
         let error = {lat: lat, long: long, data: [], error: true, search: false, type: "getBooksFromLatLong"};
         this.resultsChanged$.next(error);
         return Observable.throw(error);
