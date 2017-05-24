@@ -5,7 +5,12 @@
   </div>
 
   <div class="descriptor" *ngIf="hasSearched && !results.error">
-    <h5>Showing {{results.type}} matching <span>{{results.query}}</span>.</h5>
+    <h5 *ngIf="results.type === 'book' || results.type === 'author' || results.type === 'location'">
+      Showing {{results.type}} matching <span>{{results.query}}</span>.
+    </h5>
+    <h5 *ngIf="results.type === 'getCitiesFromBook'">
+      Showing locations mentioned in <span>{{results.bookTitle}}</span>.
+    </h5>
   </div>
 
   <div class="descriptor error" *ngIf="hasSearched && results.error">
@@ -33,17 +38,17 @@
     </div>
 
     <!--<div *ngIf="results.type === 'getCitiesFromBook'">-->
-      <!--<div *ngFor="let b of results.data" class="book">-->
-        <!--<h5 class="book-heading"><i class="fa fa-fw fa-book"></i>{{b.title}}</h5>-->
+    <!--<div *ngFor="let b of results.data" class="book">-->
+    <!--<h5 class="book-heading"><i class="fa fa-fw fa-book"></i>{{b.title}}</h5>-->
 
-        <!--<p class="book-authors">-->
-          <!--<span class="book-authors-label">Authors:</span>-->
-          <!--<span *ngFor="let a of b.authors; let i = index">-->
-        <!--<a href="#">{{a.name}}<span *ngIf="i < b.authors.length - 1">,</span></a>-->
-        <!--</span>-->
-        <!--</p>-->
-        <!--<small class="book-uid"><span>UID: </span>{{b.UID}}</small>-->
-      <!--</div>-->
+    <!--<p class="book-authors">-->
+    <!--<span class="book-authors-label">Authors:</span>-->
+    <!--<span *ngFor="let a of b.authors; let i = index">-->
+    <!--<a href="#">{{a.name}}<span *ngIf="i < b.authors.length - 1">,</span></a>-->
+    <!--</span>-->
+    <!--</p>-->
+    <!--<small class="book-uid"><span>UID: </span>{{b.UID}}</small>-->
+    <!--</div>-->
     <!--</div>-->
 
     <div *ngIf="results.type === 'getCitiesFromBook'">
