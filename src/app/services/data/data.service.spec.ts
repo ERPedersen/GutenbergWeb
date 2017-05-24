@@ -87,8 +87,8 @@ describe('DataService', () => {
         service.getSubject().subscribe((results) => r = results);
 
         service.getCitiesFromBook("Angular 4: From Theory To Practice").subscribe((res) => {
-          expect(res.json().type).toBe("getCitiesFromBook");
-          expect(res.json().bookTitle).toBe("Angular 4: From Theory To Practice");
+          expect(res.type).toBe("getCitiesFromBook");
+          expect(res.bookTitle).toBe("Angular 4: From Theory To Practice");
 
           expect(r.type).toBe("getCitiesFromBook");
           expect(r.bookTitle).toBe("Angular 4: From Theory To Practice");
