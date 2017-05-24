@@ -14,6 +14,7 @@ export class SidebarResultsComponent implements OnInit, OnDestroy {
   public results;
   public hasSearched;
   public subscription: Subscription;
+  public subscription2: Subscription;
   public searching: boolean;
 
   constructor(private searchService: SearchService, private dataService: DataService) {
@@ -21,6 +22,7 @@ export class SidebarResultsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.searchService.getSubject().subscribe(results => this.setSearchResults(results));
+    this.subscription2 = this.dataService.getSubject().subscribe(results => this.setBookResults(results));
     this.hasSearched = false;
     this.searching = false;
   }
@@ -32,6 +34,13 @@ export class SidebarResultsComponent implements OnInit, OnDestroy {
   private setSearchResults(results) {
     this.results = results;
     this.hasSearched = true;
+  }
+
+  private setBookResults(results) {
+    if (results.type === "getBooksFromLatLong") {
+      this.results = results;
+      this.hasSearched = true;
+    }
   }
 
   getLocations(bookTitle: string): void {

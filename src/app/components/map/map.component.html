@@ -1,6 +1,12 @@
 <div id="map">
   <div class="map-container">
-    <agm-map [(latitude)]="lat" [(longitude)]="lng" [(zoom)]="zoom" (mapClick)="mapClicked($event)">
+    <div class="overlay" *ngIf="searching">
+      <div class="loading">
+        <i class="fa fa-fw fa-refresh fa-spin"></i>
+        <p>Fetching Results</p>
+      </div>
+    </div>
+    <agm-map [(latitude)]="lat" [(longitude)]="lng" [(zoom)]="zoom" (mapClick)="mapClicked($event)" [usePanning]="true">
       <agm-marker *ngFor="let m of markers" [latitude]="m.latitude" [longitude]="m.longitude" [markerDraggable]="true"></agm-marker>
       <agm-circle [latitude]="circle.lat" [longitude]="circle.lng" [radius]="100000" [(visible)]="circle.visible"></agm-circle>
     </agm-map>

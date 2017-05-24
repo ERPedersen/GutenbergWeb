@@ -30,6 +30,9 @@
     <h5 *ngIf="results.type === 'getBooksFromAuthor'">
       Showing books written by <span>{{results.authorName}}</span>.
     </h5>
+    <h5 *ngIf="results.type === 'getBooksFromLatLong'">
+      Showing books mentioning cities in your selected area.
+    </h5>
   </div>
 
   <div class="descriptor error" *ngIf="hasSearched && results.error">
@@ -41,6 +44,9 @@
     </h5>
     <h5 *ngIf="results.type === 'city'">
       No cities found matching <span>{{results.query}}</span>.
+    </h5>
+    <h5 *ngIf="results.type === 'getBooksFromLatLong'">
+      No books found mentioning your selected area.
     </h5>
   </div>
 
@@ -64,7 +70,7 @@
       </div>
     </div>
 
-    <div *ngIf="results.type === 'getBooksFromCity' || results.type === 'getBooksFromAuthor'">
+    <div *ngIf="results.type === 'getBooksFromCity' || results.type === 'getBooksFromAuthor' || results.type === 'getBooksFromLatLong'">
       <div *ngFor="let b of results.data" class="book" (click)="getLocations(b.title)">
         <h5 class="book-heading"><i class="fa fa-fw fa-book"></i>{{b.title}}</h5>
 

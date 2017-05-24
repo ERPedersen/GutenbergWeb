@@ -75,7 +75,7 @@ export class DataService {
 
   public getBooksFromLatLong(lat: number, long: number): any {
 
-    let uri = this.baseUrl + "/book/location?lat=" + lat + "&long=" + long + "&rad=100";
+    let uri = this.baseUrl + "/book/location?lat=" + lat + "&long=" + long + "&rad=100&lim=200";
 
     return this.http.get(uri)
       .map((res) => {
@@ -84,7 +84,8 @@ export class DataService {
         json.long = long;
         json.search = false;
         json.type = "getBooksFromLatLong";
-        this.resultsChanged$.next(json)
+        this.resultsChanged$.next(json);
+        return json;
       }).catch((res) => {
         let error = {lat: lat, long: long, data: [], error: true, search: false, type: "getBooksFromLatLong"};
         this.resultsChanged$.next(error);
