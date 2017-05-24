@@ -79,10 +79,10 @@ describe('SidebarSearchComponent', () => {
   });
 
   it('should give locations when searching for books.', () => {
-    component.type = 'location';
+    component.type = 'city';
     component.query = 'test';
     component.formSubmit();
-    expect(component.results.type).toBe('location');
+    expect(component.results.type).toBe('city');
   });
 
   // it('should invalidate the search form when type or query is empty', () => {

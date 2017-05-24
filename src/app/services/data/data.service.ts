@@ -7,20 +7,24 @@ export class DataService {
 
   resultsChanged$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
 
+  private baseUrl: string;
+
   constructor(private http: Http) {
+    this.baseUrl = "http://zesty.emilrosenius.dk:8080/api/mysql"
   }
 
   public getBooksFromAuthor(authorName: string): any {
 
-    let uri = "http://localhost:8080/booksfromauthor?q=" + encodeURIComponent(authorName);
+    let uri = this.baseUrl + "/book/author?q=" + encodeURIComponent(authorName);
 
     return this.http.get(uri)
-      .do((res) => {
+      .map((res) => {
         let json = res.json();
         json.authorName = authorName;
         json.search = false;
         json.type = "getBooksFromAuthor";
-        this.resultsChanged$.next(json)
+        this.resultsChanged$.next(json);
+        return json;
       })
       .catch(() => {
         let error = {authorName: authorName, data: [], error: true, search: false, type: "getBooksFromAuthor"};
@@ -31,15 +35,16 @@ export class DataService {
 
   public getBooksFromCity(cityName: string): any {
 
-    let uri = "http://localhost:8080/booksfromcity?q=" + encodeURIComponent(cityName);
+    let uri = this.baseUrl + "/book/city?q=" + encodeURIComponent(cityName);
 
     return this.http.get(uri)
-      .do((res) => {
+      .map((res) => {
         let json = res.json();
         json.cityName = cityName;
         json.search = false;
         json.type = "getBooksFromCity";
-        this.resultsChanged$.next(json)
+        this.resultsChanged$.next(json);
+        return json;
       })
       .catch(() => {
         let error = {authorName: cityName, data: [], error: true, search: false, type: "getBooksFromCity"};
@@ -50,15 +55,16 @@ export class DataService {
 
   public getCitiesFromBook(bookTitle: string): any {
 
-    let uri = "http://localhost:8080/citiesfrombook?q=" + encodeURIComponent(bookTitle);
+    let uri = this.baseUrl + "/location?q=" + encodeURIComponent(bookTitle);
 
     return this.http.get(uri)
-      .do((res) => {
+      .map((res) => {
         let json = res.json();
         json.bookTitle = bookTitle;
         json.search = false;
         json.type = "getCitiesFromBook";
-        this.resultsChanged$.next(json)
+        this.resultsChanged$.next(json);
+        return json;
       })
       .catch(() => {
         let error = {bookTitle: bookTitle, data: [], error: true, search: false, type: "getCitiesFromBook"};

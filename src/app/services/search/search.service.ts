@@ -26,8 +26,8 @@ export class SearchService {
       case "author":
         uri = this.baseUrl + "/search/author?q=" + encodeURIComponent(query);
         break;
-      case "location":
-        uri = this.baseUrl + "/search/location?q=" + encodeURIComponent(query);
+      case "city":
+        uri = this.baseUrl + "/search/city?q=" + encodeURIComponent(query);
         break;
     }
 

@@ -2,7 +2,29 @@
 @import '../../../assets/scss/variables';
 
 #sidebar-results {
+  position: relative;
   max-height: calc(100vh - 189px);
+
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+
+    .loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+
+      i.fa {
+        color: $color-primary;
+        font-size: 50px;
+        margin-bottom: 15px;
+      }
+    }
+  }
 
   .descriptor {
     padding: 24px 30px;
@@ -25,7 +47,7 @@
   }
 
   .results {
-    max-height: calc(100vh - 189px - 70px);
+    height: calc(100vh - 189px - 70px);
     overflow-y: scroll;
 
     .search-result {
@@ -57,51 +79,107 @@
 }
 
 
-//.book {
-//  padding: 24px 30px;
-//  border-bottom: 1px solid $color-grey;
-//
-//  h5.book-heading {
-//    font-weight: 500;
-//    margin-bottom: 10px;
-//    font-size: 18px;
-//
-//    i.fa {
-//      margin-right: 5px;
-//      margin-left: -2px;
-//      color: $color-primary;
-//    }
-//  }
-//
-//
-//
-//  p.book-authors {
-//    margin-bottom: 0;
-//    font-size: 13px;
-//
-//    span.book-authors-label {
-//      font-weight: 500;
-//      color: $headings-color;
-//    }
-//
-//    a {
-//      font-weight: 300;
-//      color: $text-color;
-//      transition: 400ms ease;
-//      transition-property: color;
-//
-//      &:hover {
-//        color: $color-primary;
-//      }
-//    }
-//  }
-//
-//  small.book-uid {
-//    span {
-//      font-weight: 500;
-//      color: $headings-color;
-//    }
-//
-//    color: $color-darkgrey;
-//  }
-//}
+.book {
+  padding: 24px 30px;
+  border-bottom: 1px solid $color-grey;
+  cursor: pointer;
+  transition: 400ms ease;
+  transition-property: background-color;
+
+  &:hover {
+    background-color: $color-lightgrey;
+  }
+
+  h5.book-heading {
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    i.fa {
+      margin-right: 5px;
+      margin-left: -2px;
+      color: $color-primary;
+    }
+  }
+
+  p.book-authors {
+    margin-bottom: 0;
+    font-size: 13px;
+
+    span.book-authors-label {
+      font-weight: 500;
+      color: $headings-color;
+    }
+
+    a {
+      font-weight: 300;
+      color: $text-color;
+      transition: 400ms ease;
+      transition-property: color;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  small.book-uid {
+    span {
+      font-weight: 500;
+      color: $headings-color;
+    }
+
+    color: $color-darkgrey;
+  }
+}
+
+.location {
+  padding: 24px 30px;
+  border-bottom: 1px solid $color-grey;
+  cursor: pointer;
+  transition: 400ms ease;
+  transition-property: background-color;
+
+  &:hover {
+    background-color: $color-lightgrey;
+  }
+
+  h5.location-heading {
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    i.fa {
+      margin-right: 5px;
+      margin-left: -2px;
+      color: $color-primary;
+    }
+  }
+
+  p.coordinate {
+    margin-bottom: 0;
+    font-size: 13px;
+
+    span.coordinate-label {
+      font-weight: 500;
+      color: $headings-color;
+    }
+
+    a {
+      font-weight: 300;
+      color: $text-color;
+      transition: 400ms ease;
+      transition-property: color;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}
