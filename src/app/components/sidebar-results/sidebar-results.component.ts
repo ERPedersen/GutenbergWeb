@@ -35,7 +35,14 @@ export class SidebarResultsComponent implements OnInit, OnDestroy {
 
   getLocations(bookTitle: string): void {
     this.dataService.getCitiesFromBook(bookTitle).subscribe((res) => {
-      console.log(res);
+
+      res.data.sort((a, b) => {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      });
+
+      this.results = res;
     });
   }
 

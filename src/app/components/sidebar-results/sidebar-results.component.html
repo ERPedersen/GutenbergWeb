@@ -32,18 +32,32 @@
       </div>
     </div>
 
-    <!--<div *ngFor="let b of results" class="book">-->
-    <!--<h5 class="book-heading"><i class="fa fa-fw fa-book"></i>{{b.title}}</h5>-->
+    <!--<div *ngIf="results.type === 'getCitiesFromBook'">-->
+      <!--<div *ngFor="let b of results.data" class="book">-->
+        <!--<h5 class="book-heading"><i class="fa fa-fw fa-book"></i>{{b.title}}</h5>-->
 
-    <!--<p class="book-authors">-->
-    <!--<span class="book-authors-label">Authors:</span>-->
-    <!--<span *ngFor="let a of b.authors; let i = index">-->
-    <!--<a href="#">{{a.name}}<span *ngIf="i < b.authors.length - 1">,</span></a>-->
-    <!--</span>-->
-    <!--</p>-->
-
-    <!--<small class="book-uid"><span>UID: </span>{{b.UID}}</small>-->
-
+        <!--<p class="book-authors">-->
+          <!--<span class="book-authors-label">Authors:</span>-->
+          <!--<span *ngFor="let a of b.authors; let i = index">-->
+        <!--<a href="#">{{a.name}}<span *ngIf="i < b.authors.length - 1">,</span></a>-->
+        <!--</span>-->
+        <!--</p>-->
+        <!--<small class="book-uid"><span>UID: </span>{{b.UID}}</small>-->
+      <!--</div>-->
     <!--</div>-->
+
+    <div *ngIf="results.type === 'getCitiesFromBook'">
+      <div *ngFor="let l of results.data" class="location">
+        <h5 class="location-heading">{{l.name}}</h5>
+        <p class="coordinate">
+          <span class="coordinate-label">Lat:</span>{{l.latitude}}
+        </p>
+        <p class="coordinate">
+          <span class="coordinate-label">Lng:</span>{{l.longitude}}
+        </p>
+      </div>
+    </div>
+
+
   </div>
 </div>
