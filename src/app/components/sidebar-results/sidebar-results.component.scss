@@ -60,6 +60,13 @@
 .book {
   padding: 24px 30px;
   border-bottom: 1px solid $color-grey;
+  cursor: pointer;
+  transition: 400ms ease;
+  transition-property: background-color;
+
+  &:hover {
+    background-color: $color-lightgrey;
+  }
 
   h5.book-heading {
     font-weight: 500;
@@ -107,6 +114,13 @@
 .location {
   padding: 24px 30px;
   border-bottom: 1px solid $color-grey;
+  cursor: pointer;
+  transition: 400ms ease;
+  transition-property: background-color;
+
+  &:hover {
+    background-color: $color-lightgrey;
+  }
 
   h5.location-heading {
     font-weight: 500;
