@@ -65,26 +65,26 @@ describe('SidebarSearchComponent', () => {
   });
 
   it('should give books when searching for books.', () => {
-    component.type = 'books';
+    component.type = 'book';
     component.query = 'test';
     component.formSubmit();
-    expect(component.results.type).toBe('books');
+    expect(component.results.type).toBe('book');
   });
 
   it('should give authors when searching for authors.', () => {
-    component.type = 'authors';
+    component.type = 'author';
     component.query = 'test';
     component.formSubmit();
-    expect(component.results.type).toBe('authors');
+    expect(component.results.type).toBe('author');
   });
 
   it('should give locations when searching for books.', () => {
-    component.type = 'locations';
+    component.type = 'location';
     component.query = 'test';
     component.formSubmit();
-    expect(component.results.type).toBe('locations');
+    expect(component.results.type).toBe('location');
   });
-  
+
   // it('should invalidate the search form when type or query is empty', () => {
   //   component.type = '';
   //   component.query = '';
@@ -100,5 +100,5 @@ describe('SidebarSearchComponent', () => {
   //   expect(component.errors.type).toBeFalsy();
   //   expect(component.errors.query).toBeFalsy();
   // });
-  
+
 });
