@@ -41,7 +41,7 @@
     </div>
 
     <div *ngIf="results.type === 'getBooksFromCity'">
-      <div *ngFor="let b of results.data" class="book">
+      <div *ngFor="let b of results.data" class="book" (click)="getLocations(b.title)">
         <h5 class="book-heading"><i class="fa fa-fw fa-book"></i>{{b.title}}</h5>
 
         <p class="book-authors">
