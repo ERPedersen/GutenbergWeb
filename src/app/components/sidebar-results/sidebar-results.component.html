@@ -5,7 +5,7 @@
   </div>
 
   <div class="descriptor" *ngIf="hasSearched && !results.error">
-    <h5 *ngIf="results.type === 'book' || results.type === 'author' || results.type === 'location'">
+    <h5 *ngIf="results.type === 'book' || results.type === 'author' || results.type === 'city'">
       Showing {{results.type}} matching <span>{{results.query}}</span>.
     </h5>
     <h5 *ngIf="results.type === 'getCitiesFromBook'">
@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <div *ngIf="results.type === 'location'">
+    <div *ngIf="results.type === 'city'">
       <div *ngFor="let l of results.data" class="search-result">
         <h5 class="title"><i class="fa fa-map-marker"></i>{{l}}</h5>
       </div>
@@ -53,7 +53,7 @@
 
     <div *ngIf="results.type === 'getCitiesFromBook'">
       <div *ngFor="let l of results.data" class="location">
-        <h5 class="location-heading">{{l.name}}</h5>
+        <h5 class="location-heading"><i class="fa fa-fw fa-map-marker"></i>{{l.name}}</h5>
         <p class="coordinate">
           <span class="coordinate-label">Lat:</span>{{l.latitude}}
         </p>

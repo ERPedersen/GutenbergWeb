@@ -31,8 +31,8 @@ describe('SearchService', () => {
           mockResponse.type = "book";
         } else if (connection.request.url.indexOf("author") >= 0) {
           mockResponse.type = "author";
-        } else if (connection.request.url.indexOf("location") >= 0) {
-          mockResponse.type = "location";
+        } else if (connection.request.url.indexOf("city") >= 0) {
+          mockResponse.type = "city";
         }
 
         connection.mockRespond(new Response(new ResponseOptions({
@@ -68,9 +68,9 @@ describe('SearchService', () => {
       let r;
       service.getSubject().subscribe(results => r = results);
 
-      service.getSearchResults("location", "test").subscribe((locations) => {
-        expect(locations.json().type).toBe("location");
-        expect(r.type).toBe("location");
+      service.getSearchResults("city", "test").subscribe((locations) => {
+        expect(locations.json().type).toBe("city");
+        expect(r.type).toBe("city");
       });
     }));
 
