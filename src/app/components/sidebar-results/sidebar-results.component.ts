@@ -31,4 +31,8 @@ export class SidebarResultsComponent implements OnInit, OnDestroy {
     this.hasSearched = true;
   }
 
+  getLocations(bookTitle: string): void {
+    console.log(bookTitle);
+  }
+
 }
