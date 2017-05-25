@@ -27,4 +27,5 @@ describe('GutenbergWeb App', () => {
     expect(page.hasClass(element(by.id('sidebar-search-query-group')), 'has-error')).toBe(false);
   });
 
+
 });
