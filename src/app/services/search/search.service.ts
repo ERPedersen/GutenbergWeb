@@ -35,28 +35,37 @@ export class SearchService {
       .do((res) => {
         let json = res.json();
         json.query = query;
-
-        for (let e of json.data) {
-          e = e.trim();
-        }
-
-        json.data.sort((a, b) => {
-          if (a < b ) return -1;
-          if (a > b ) return 1;
-          return 0;
-        });
-
+        json.data = this.trimData(json.data);
+        json.data = this.sortData(json.data);
         this.searchResultsChanged$.next(json)
       })
-      .catch(() => {
-        let error = {type: type, query: query, data: [], error: true};
-        this.searchResultsChanged$.next(error);
-        return Observable.throw(error);
-      });
+      .catch(() => this.handleError(type, query));
   }
 
   public getSubject(): Observable<any> {
     return this.searchResultsChanged$.asObservable();
+  }
+
+  trimData(input) {
+    for (let e in input) {
+      input[e] = input[e].trim();
+    }
+    return input;
+  }
+
+  sortData(input) {
+    input.sort((a, b) => {
+      if (a < b ) return -1;
+      if (a > b ) return 1;
+      return 0;
+    });
+    return input;
+  }
+
+  handleError(type, query) {
+    let error = {type: type, query: query, data: [], error: true};
+    this.searchResultsChanged$.next(error);
+    return Observable.throw(error);
   }
 
 
