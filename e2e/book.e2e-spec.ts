@@ -44,6 +44,24 @@ describe('GutenbergWeb Books', () => {
 
     expect(element(by.className('descriptor')).getText()).toContain('No books found matching This Is Not A Title');
 
-  })
+  });
+
+  it('should show a list of 32 books when clicking the city Tipton', () => {
+
+    page.navigateToHome();
+
+    page.selectDropdownItem(element(by.id('sidebar-search-type')), 2);
+    page.writeInput(element(by.id('sidebar-search-query')), 'Bull');
+    page.clickElement(element(by.id('sidebar-search-button')));
+
+    page.clickElement(element(by.cssContainingText('.title', 'Bulldog And Butterfly')));
+
+    expect(page.getChildElements(element,'location').count()).toBeGreaterThan(10);
+
+    page.clickElement(element(by.cssContainingText('.location-heading', 'Tipton')));
+
+    expect(page.getChildElements(element,'book').count()).toBe(32);
+
+  });
 
 });
