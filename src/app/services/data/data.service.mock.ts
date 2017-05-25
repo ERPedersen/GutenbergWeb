@@ -11,7 +11,6 @@ export class DataServiceMock {
   constructor(private http: Http) {}
 
   public getBooksFromAuthor(authorName: string): any {
-
     return Observable.of(
       {
         type: "getBooksFromAuthor",
