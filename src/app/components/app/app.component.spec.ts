@@ -9,6 +9,9 @@ import {BrowserModule} from "@angular/platform-browser";
 import {HttpModule} from "@angular/http";
 import {SearchService} from "../../services/search/search.service";
 import {DataService} from "../../services/data/data.service";
+import {AgmCoreModule, AgmMap, MapsAPILoader} from "@agm/core";
+import {DataServiceMock} from "../../services/data/data.service.mock";
+import {SearchServiceMock} from "../../services/search/search.service.mock";
 
 describe('AppComponent', () => {
 
@@ -25,12 +28,16 @@ describe('AppComponent', () => {
         SidebarResultsComponent
       ],
       providers: [
-        SearchService, DataService
+        SearchService,
+        DataService
       ],
       imports: [
         BrowserModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        AgmCoreModule.forRoot({
+          apiKey: 'AIzaSyAtZnU28zd51Mfl2hv8JLKHKoH7Ja-JpyQ'
+        })
       ]
     }).compileComponents();
   }));

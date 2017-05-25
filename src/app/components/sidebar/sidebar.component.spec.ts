@@ -6,6 +6,9 @@ import {SidebarSearchComponent} from "../sidebar-search/sidebar-search.component
 import {FormsModule} from "@angular/forms";
 import {HttpModule, JsonpModule} from "@angular/http";
 import {SearchService} from "../../services/search/search.service";
+import {DataService} from "../../services/data/data.service";
+import {DataServiceMock} from "../../services/data/data.service.mock";
+import {SearchServiceMock} from "../../services/search/search.service.mock";
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -19,14 +22,14 @@ describe('SidebarComponent', () => {
         SidebarResultsComponent
       ],
       providers: [
-        SearchService
+        SearchService,
+        DataService
       ],
       imports: [
         FormsModule,
         HttpModule
       ]
-    })
-    .compileComponents();
+    });
   }));
 
   beforeEach(() => {
