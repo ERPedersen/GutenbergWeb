@@ -73,9 +73,4 @@ export class SidebarResultsComponent implements OnInit, OnDestroy {
       this.searching = false;
     });
   }
-
-  doNothing() {
-
-  }
-
 }
