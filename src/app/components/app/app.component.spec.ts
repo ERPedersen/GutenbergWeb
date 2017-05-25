@@ -28,9 +28,8 @@ describe('AppComponent', () => {
         SidebarResultsComponent
       ],
       providers: [
-        {provide: DataService, useClass: DataServiceMock},
-        {provide: SearchService, useClass: SearchServiceMock},
-        SearchService, DataService
+        SearchService,
+        DataService
       ],
       imports: [
         BrowserModule,

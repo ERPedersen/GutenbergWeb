@@ -20,9 +20,7 @@ describe('SidebarSearchComponent', () => {
       ],
       providers: [
         {provide: SearchService, useClass: SearchServiceMock},
-        {provide: DataService, useClass: DataServiceMock},
-        SearchService,
-        DataService
+        {provide: DataService, useClass: DataServiceMock}
       ],
       imports: [
         FormsModule,

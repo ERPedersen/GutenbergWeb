@@ -107,12 +107,10 @@ describe('DataService', () => {
           expect(res.type).toBe("getBooksFromLatLong");
           expect(res.lat).toBe(1.2345);
           expect(res.long).toBe(5.4321);
-          expect(res.rad).toBe(1000);
-
+          
           expect(r.type).toBe("getBooksFromLatLong");
           expect(r.lat).toBe(1.2345);
           expect(r.long).toBe(5.4321);
-          expect(r.rad).toBe(1000);
         });
       })
     );
