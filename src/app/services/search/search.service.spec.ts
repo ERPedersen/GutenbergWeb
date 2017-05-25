@@ -20,6 +20,26 @@ describe('SearchService', () => {
     expect(service).toBeTruthy();
   }));
 
+  it('should trim data', inject([SearchService], (service: SearchService) => {
+    let sorted = service.trimData([" A", "B", "       C"]);
+    expect(sorted[0]).toBe("A");
+    expect(sorted[1]).toBe("B");
+    expect(sorted[2]).toBe("C");
+  }));
+
+  it('should sort data', inject([SearchService], (service: SearchService) => {
+    let sorted = service.sortData(["B", "C", "A"]);
+    expect(sorted[0]).toBe("A");
+    expect(sorted[1]).toBe("B");
+    expect(sorted[2]).toBe("C");
+  }));
+
+  it('should return error', inject([SearchService], (service: SearchService) => {
+    service.handleError("", "").subscribe((res) => {}, (error) => {
+      expect(error.error).toBeTruthy();
+    });
+  }));
+
   describe("HTTP methods", () => {
 
     beforeEach(inject([XHRBackend], (mockBackend) => {
