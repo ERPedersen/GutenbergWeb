@@ -28,10 +28,11 @@ describe('SearchService', () => {
   }));
 
   it('should sort data', inject([SearchService], (service: SearchService) => {
-    let sorted = service.sortData(["B", "C", "A"]);
+    let sorted = service.sortData(["B", "C", "A", "C"]);
     expect(sorted[0]).toBe("A");
     expect(sorted[1]).toBe("B");
     expect(sorted[2]).toBe("C");
+    expect(sorted[3]).toBe("C");
   }));
 
   it('should return error', inject([SearchService], (service: SearchService) => {
