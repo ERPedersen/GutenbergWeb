@@ -81,6 +81,9 @@
           </span>
         </p>
         <small class="book-uid"><span>UID: </span>{{b.UID}}</small>
+
+        <a class="btn btn-primary btn-download" href="http://cdn.zesty.emilrosenius.dk/{{b.text}}" download (click)="$event.stopPropagation()"><i class="fa fa-fw fa-download"></i></a>
+
       </div>
     </div>
 
