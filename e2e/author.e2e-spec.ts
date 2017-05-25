@@ -1,7 +1,7 @@
 import {browser, element, by, protractor} from 'protractor';
 import {GutenbergWebPage} from './app.po';
 
-describe('GutenbergWeb App', () => {
+describe('GutenbergWeb Authors', () => {
   let page: GutenbergWebPage;
 
   beforeEach(() => {

@@ -1,7 +1,7 @@
 import {browser, element, by, protractor} from 'protractor';
 import {GutenbergWebPage} from './app.po';
 
-describe('GutenbergWeb App', () => {
+describe('GutenbergWeb Books', () => {
   let page: GutenbergWebPage;
 
   beforeEach(() => {
@@ -17,6 +17,21 @@ describe('GutenbergWeb App', () => {
     page.clickElement(element(by.id('sidebar-search-button')));
 
     expect(page.getChildElements(element,'search-result').count()).toBe(3);
+  });
+
+  it('should show 56 different locations when clicking on the book "Time Crime".', () => {
+
+    page.navigateToHome();
+
+    page.selectDropdownItem(element(by.id('sidebar-search-type')), 2);
+    page.writeInput(element(by.id('sidebar-search-query')), 'Time');
+    page.clickElement(element(by.id('sidebar-search-button')));
+
+    page.clickElement(element(by.cssContainingText('.title', 'Time Crime')));
+
+    expect(page.getChildElements(element,'location').count()).toBe(56);
+
+
   });
 
   it('should say "No books found matching This Is Not A Title" when searching for the title "This Is Not A Title".', () => {
