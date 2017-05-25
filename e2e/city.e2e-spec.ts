@@ -8,6 +8,7 @@ describe('GutenbergWeb Cities', () => {
     page = new GutenbergWebPage();
   });
 
+
   it('should say "No cities found matching Jonestown" when searching for the city "Jonestown".', () => {
 
     page.navigateToHome();
