@@ -6,6 +6,8 @@ import {HttpModule, JsonpModule, Http} from '@angular/http';
 import {FormsModule} from "@angular/forms";
 import {Observable} from "rxjs";
 import {SearchServiceMock} from "../../services/search/search.service.mock";
+import {DataServiceMock} from "../../services/data/data.service.mock";
+import {DataService} from "../../services/data/data.service";
 
 describe('SidebarSearchComponent', () => {
   let component: SidebarSearchComponent;
@@ -17,7 +19,10 @@ describe('SidebarSearchComponent', () => {
         SidebarSearchComponent
       ],
       providers: [
-        {provide: SearchService, useClass: SearchServiceMock}
+        {provide: SearchService, useClass: SearchServiceMock},
+        {provide: DataService, useClass: DataServiceMock},
+        SearchService,
+        DataService
       ],
       imports: [
         FormsModule,
