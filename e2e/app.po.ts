@@ -27,4 +27,14 @@ export class GutenbergWebPage {
   clickElement(element) {
     element.click();
   }
+
+  getChildElements(element, cls) {
+    return element.all(by.className(cls));
+  }
+
+  getElementByText(element,cls,text) {
+    return element(by.cssContainingText(cls, text));
+  }
+
+
 }

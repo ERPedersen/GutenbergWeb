@@ -27,4 +27,39 @@ describe('GutenbergWeb App', () => {
     expect(page.hasClass(element(by.id('sidebar-search-query-group')), 'has-error')).toBe(false);
   });
 
+  it('should retrieve three different books when search for "The Ram" in the search field.', () => {
+    page.navigateToHome();
+
+    page.selectDropdownItem(element(by.id('sidebar-search-type')), 2);
+    page.writeInput(element(by.id('sidebar-search-query')), 'The Ram');
+    page.clickElement(element(by.id('sidebar-search-button')));
+
+    expect(page.getChildElements(element,'search-result').count()).toBe(3);
+  });
+
+  it('should show a list of 13 authors when searching for author "John K"', () => {
+
+    page.navigateToHome();
+
+    page.selectDropdownItem(element(by.id('sidebar-search-type')), 1);
+    page.writeInput(element(by.id('sidebar-search-query')), 'John K');
+    page.clickElement(element(by.id('sidebar-search-button')));
+
+    expect(page.getChildElements(element,'search-result').count()).toBe(13);
+
+  });
+
+  it('should show a list with one book called "Among Famous Books" when clicking author "John Kelman"', () => {
+    page.navigateToHome();
+
+    page.selectDropdownItem(element(by.id('sidebar-search-type')), 1);
+    page.writeInput(element(by.id('sidebar-search-query')), 'John Kelman');
+    page.clickElement(element(by.id('sidebar-search-button')));
+
+    page.clickElement(element(by.cssContainingText('.title', 'John Kelman')));
+
+    expect(page.getElementByText(element,'title','Among Famous Books')).toBeDefined();
+
+  });
+
 });
