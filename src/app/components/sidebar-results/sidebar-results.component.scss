@@ -85,6 +85,13 @@
   cursor: pointer;
   transition: 400ms ease;
   transition-property: background-color;
+  position: relative;
+
+  .btn-download {
+    position: absolute;
+    bottom: 24px;
+    right: 30px;
+  }
 
   &:hover {
     background-color: $color-lightgrey;
