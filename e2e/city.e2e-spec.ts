@@ -39,7 +39,7 @@ describe('GutenbergWeb Cities', () => {
 
     page.clickElement(element(by.cssContainingText('.title', 'Chicacole')));
 
-    expect(page.getChildElements(element,'search-result').count()).toBe(2);
+    expect(page.getChildElements(element,'book').count()).toBe(2);
 
   });
 
@@ -52,11 +52,11 @@ describe('GutenbergWeb Cities', () => {
 
     page.clickElement(element(by.cssContainingText('.title', 'Chicacole')));
 
-    expect(page.getChildElements(element,'search-result').count()).toBe(2);
+    expect(page.getChildElements(element,'book').count()).toBe(2);
 
-    page.clickElement(element(by.cssContainingText('.title', 'Chicacole')));
+    page.clickElement(element(by.cssContainingText('.book-heading', 'Man and His Migrations')));
 
-
+    expect(page.getChildElements(element,'results').count()).toBeGreaterThan(0);
   });
 
 
