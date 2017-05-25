@@ -62,4 +62,21 @@ describe('GutenbergWeb App', () => {
 
   });
 
+  it('should show a list of over 50 locations when clicking the book "Among Famous Books"', () => {
+
+    page.navigateToHome();
+
+    page.selectDropdownItem(element(by.id('sidebar-search-type')), 1);
+    page.writeInput(element(by.id('sidebar-search-query')), 'John Kelman');
+    page.clickElement(element(by.id('sidebar-search-button')));
+
+    page.clickElement(element(by.cssContainingText('.title', 'John Kelman')));
+    page.clickElement(element(by.cssContainingText('.book', 'Among Famous Books')));
+
+    console.log(page.getChildElements(element,'location').count())
+
+    expect(page.getChildElements(element,'location').count()).toBeGreaterThan(50);
+
+  });
+
 });
